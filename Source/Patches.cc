@@ -1,0 +1,442 @@
+#include "Zion/Patches.hh"
+#include "Zion/Memory.hh"
+#include "Game/RenderWare.h"
+#include "Game/CStore.h"
+#include "Game/CPedModelInfo.h"
+#include "Game/CAtomicModelInfo.h"
+#include "Game/CVehicleModelInfo.h"
+#include "Game/CColModel.h"
+#include "Game/CClumpModelInfo.h"
+#include <string.h>
+#include <windows.h>
+
+static const RwRGBA vehicleColors[] =
+{
+    {0x00, 0x00, 0x00, 0xFF}, {0xF5, 0xF5, 0xF5, 0xFF}, {0x2A, 0x77, 0xA1, 0xFF}, {0x84, 0x04, 0x10, 0xFF},
+    {0x26, 0x37, 0x39, 0xFF}, {0x86, 0x44, 0x6E, 0xFF}, {0xD7, 0x8E, 0x10, 0xFF}, {0x4C, 0x75, 0xB7, 0xFF},
+    {0xBD, 0xBE, 0xC6, 0xFF}, {0x5E, 0x70, 0x72, 0xFF}, {0x46, 0x59, 0x7A, 0xFF}, {0x65, 0x6A, 0x79, 0xFF},
+    {0x5D, 0x7E, 0x8D, 0xFF}, {0x58, 0x59, 0x5A, 0xFF}, {0xD6, 0xDA, 0xD6, 0xFF}, {0x9C, 0xA1, 0xA3, 0xFF},
+    {0x33, 0x5F, 0x3F, 0xFF}, {0x73, 0x0E, 0x1A, 0xFF}, {0x7B, 0x0A, 0x2A, 0xFF}, {0x9F, 0x9D, 0x94, 0xFF},
+    {0x3B, 0x4E, 0x78, 0xFF}, {0x73, 0x2E, 0x3E, 0xFF}, {0x69, 0x1E, 0x3B, 0xFF}, {0x96, 0x91, 0x8C, 0xFF},
+    {0x51, 0x54, 0x59, 0xFF}, {0x3F, 0x3E, 0x45, 0xFF}, {0xA5, 0xA9, 0xA7, 0xFF}, {0x63, 0x5C, 0x5A, 0xFF},
+    {0x3D, 0x4A, 0x68, 0xFF}, {0x97, 0x95, 0x92, 0xFF}, {0x42, 0x1F, 0x21, 0xFF}, {0x5F, 0x27, 0x2B, 0xFF},
+    {0x84, 0x94, 0xAB, 0xFF}, {0x76, 0x7B, 0x7C, 0xFF}, {0x64, 0x64, 0x64, 0xFF}, {0x5A, 0x57, 0x52, 0xFF},
+    {0x25, 0x25, 0x27, 0xFF}, {0x2D, 0x3A, 0x35, 0xFF}, {0x93, 0xA3, 0x96, 0xFF}, {0x6D, 0x7A, 0x88, 0xFF},
+    {0x22, 0x19, 0x18, 0xFF}, {0x6F, 0x67, 0x5F, 0xFF}, {0x7C, 0x1C, 0x2A, 0xFF}, {0x5F, 0x0A, 0x15, 0xFF},
+    {0x19, 0x38, 0x26, 0xFF}, {0x5D, 0x1B, 0x20, 0xFF}, {0x9D, 0x98, 0x72, 0xFF}, {0x7A, 0x75, 0x60, 0xFF},
+    {0x98, 0x95, 0x86, 0xFF}, {0xAD, 0xB0, 0xB0, 0xFF}, {0x84, 0x89, 0x88, 0xFF}, {0x30, 0x4F, 0x45, 0xFF},
+    {0x4D, 0x62, 0x68, 0xFF}, {0x16, 0x22, 0x48, 0xFF}, {0x27, 0x2F, 0x4B, 0xFF}, {0x7D, 0x62, 0x56, 0xFF},
+    {0x9E, 0xA4, 0xAB, 0xFF}, {0x9C, 0x8D, 0x71, 0xFF}, {0x6D, 0x18, 0x22, 0xFF}, {0x4E, 0x68, 0x81, 0xFF},
+    {0x9C, 0x9C, 0x98, 0xFF}, {0x91, 0x73, 0x47, 0xFF}, {0x66, 0x1C, 0x26, 0xFF}, {0x94, 0x9D, 0x9F, 0xFF},
+    {0xA4, 0xA7, 0xA5, 0xFF}, {0x8E, 0x8C, 0x46, 0xFF}, {0x34, 0x1A, 0x1E, 0xFF}, {0x6A, 0x7A, 0x8C, 0xFF},
+    {0xAA, 0xAD, 0x8E, 0xFF}, {0xAB, 0x98, 0x8F, 0xFF}, {0x85, 0x1F, 0x2E, 0xFF}, {0x6F, 0x82, 0x97, 0xFF},
+    {0x58, 0x58, 0x53, 0xFF}, {0x9A, 0xA7, 0x90, 0xFF}, {0x60, 0x1A, 0x23, 0xFF}, {0x20, 0x20, 0x2C, 0xFF},
+    {0xA4, 0xA0, 0x96, 0xFF}, {0xAA, 0x9D, 0x84, 0xFF}, {0x78, 0x22, 0x2B, 0xFF}, {0x0E, 0x31, 0x6D, 0xFF},
+    {0x72, 0x2A, 0x3F, 0xFF}, {0x7B, 0x71, 0x5E, 0xFF}, {0x74, 0x1D, 0x28, 0xFF}, {0x1E, 0x2E, 0x32, 0xFF},
+    {0x4D, 0x32, 0x2F, 0xFF}, {0x7C, 0x1B, 0x44, 0xFF}, {0x2E, 0x5B, 0x20, 0xFF}, {0x39, 0x5A, 0x83, 0xFF},
+    {0x6D, 0x28, 0x37, 0xFF}, {0xA7, 0xA2, 0x8F, 0xFF}, {0xAF, 0xB1, 0xB1, 0xFF}, {0x36, 0x41, 0x55, 0xFF},
+    {0x6D, 0x6C, 0x6E, 0xFF}, {0x0F, 0x6A, 0x89, 0xFF}, {0x20, 0x4B, 0x6B, 0xFF}, {0x2B, 0x3E, 0x57, 0xFF},
+    {0x9B, 0x9F, 0x9D, 0xFF}, {0x6C, 0x84, 0x95, 0xFF}, {0x4D, 0x84, 0x95, 0xFF}, {0xAE, 0x9B, 0x7F, 0xFF},
+    {0x40, 0x6C, 0x8F, 0xFF}, {0x1F, 0x25, 0x3B, 0xFF}, {0xAB, 0x92, 0x76, 0xFF}, {0x13, 0x45, 0x73, 0xFF},
+    {0x96, 0x81, 0x6C, 0xFF}, {0x64, 0x68, 0x6A, 0xFF}, {0x10, 0x50, 0x82, 0xFF}, {0xA1, 0x99, 0x83, 0xFF},
+    {0x38, 0x56, 0x94, 0xFF}, {0x52, 0x56, 0x61, 0xFF}, {0x7F, 0x69, 0x56, 0xFF}, {0x8C, 0x92, 0x9A, 0xFF},
+    {0x59, 0x6E, 0x87, 0xFF}, {0x47, 0x35, 0x32, 0xFF}, {0x44, 0x62, 0x4F, 0xFF}, {0x73, 0x0A, 0x27, 0xFF},
+    {0x22, 0x34, 0x57, 0xFF}, {0x64, 0x0D, 0x1B, 0xFF}, {0xA3, 0xAD, 0xC6, 0xFF}, {0x69, 0x58, 0x53, 0xFF},
+    {0x9B, 0x8B, 0x80, 0xFF}, {0x62, 0x0B, 0x1C, 0xFF}, {0x5B, 0x5D, 0x5E, 0xFF}, {0x62, 0x44, 0x28, 0xFF},
+    {0x73, 0x18, 0x27, 0xFF}, {0x1B, 0x37, 0x6D, 0xFF}, {0xEC, 0x6A, 0xAE, 0xFF}, {0x00, 0x00, 0x00, 0xFF},
+    {0x17, 0x75, 0x17, 0xFF}, {0x21, 0x06, 0x06, 0xFF}, {0x12, 0x54, 0x78, 0xFF}, {0x45, 0x2A, 0x0D, 0xFF},
+    {0x57, 0x1E, 0x1E, 0xFF}, {0x01, 0x07, 0x01, 0xFF}, {0x25, 0x22, 0x5A, 0xFF}, {0x2C, 0x89, 0xAA, 0xFF},
+    {0x8A, 0x4D, 0xBD, 0xFF}, {0x35, 0x96, 0x3A, 0xFF}, {0xB7, 0xB7, 0xB7, 0xFF}, {0x46, 0x4C, 0x8D, 0xFF},
+    {0x84, 0x88, 0x8C, 0xFF}, {0x81, 0x78, 0x67, 0xFF}, {0x81, 0x7A, 0x26, 0xFF}, {0x6A, 0x50, 0x6F, 0xFF},
+    {0x58, 0x3E, 0x6F, 0xFF}, {0x8C, 0xB9, 0x72, 0xFF}, {0x82, 0x4F, 0x78, 0xFF}, {0x6D, 0x27, 0x6A, 0xFF},
+    {0x1E, 0x1D, 0x13, 0xFF}, {0x1E, 0x13, 0x06, 0xFF}, {0x1F, 0x25, 0x18, 0xFF}, {0x2C, 0x45, 0x31, 0xFF},
+    {0x1E, 0x4C, 0x99, 0xFF}, {0x2E, 0x5F, 0x43, 0xFF}, {0x1E, 0x99, 0x48, 0xFF}, {0x1E, 0x99, 0x99, 0xFF},
+    {0x99, 0x99, 0x76, 0xFF}, {0x7C, 0x84, 0x99, 0xFF}, {0x99, 0x2E, 0x1E, 0xFF}, {0x2C, 0x1E, 0x08, 0xFF},
+    {0x14, 0x24, 0x07, 0xFF}, {0x99, 0x3E, 0x4D, 0xFF}, {0x1E, 0x4C, 0x99, 0xFF}, {0x19, 0x81, 0x81, 0xFF},
+    {0x1A, 0x29, 0x2A, 0xFF}, {0x16, 0x61, 0x6F, 0xFF}, {0x1B, 0x66, 0x87, 0xFF}, {0x6C, 0x3F, 0x99, 0xFF},
+    {0x48, 0x1A, 0x0E, 0xFF}, {0x7A, 0x73, 0x99, 0xFF}, {0x74, 0x6D, 0x99, 0xFF}, {0x53, 0x38, 0x7E, 0xFF},
+    {0x22, 0x24, 0x07, 0xFF}, {0x3E, 0x19, 0x0C, 0xFF}, {0x46, 0x21, 0x0E, 0xFF}, {0x99, 0x1E, 0x1E, 0xFF},
+    {0x8D, 0x4C, 0x8D, 0xFF}, {0x80, 0x5B, 0x80, 0xFF}, {0x7B, 0x3E, 0x7E, 0xFF}, {0x3C, 0x17, 0x37, 0xFF},
+    {0x73, 0x35, 0x17, 0xFF}, {0x78, 0x18, 0x18, 0xFF}, {0x83, 0x34, 0x1A, 0xFF}, {0x8E, 0x2F, 0x1C, 0xFF},
+    {0x7E, 0x3E, 0x53, 0xFF}, {0x7C, 0x6D, 0x7C, 0xFF}, {0x02, 0x0C, 0x02, 0xFF}, {0x07, 0x24, 0x07, 0xFF},
+    {0x16, 0x30, 0x12, 0xFF}, {0x16, 0x30, 0x1B, 0xFF}, {0x64, 0x2B, 0x4F, 0xFF}, {0x36, 0x84, 0x52, 0xFF},
+    {0x99, 0x95, 0x90, 0xFF}, {0x81, 0x8D, 0x96, 0xFF}, {0x99, 0x99, 0x1E, 0xFF}, {0x7F, 0x99, 0x4C, 0xFF},
+    {0x83, 0x92, 0x92, 0xFF}, {0x78, 0x82, 0x22, 0xFF}, {0x2B, 0x3C, 0x99, 0xFF}, {0x3A, 0x3A, 0x0B, 0xFF},
+    {0x8A, 0x79, 0x4E, 0xFF}, {0x0E, 0x1F, 0x49, 0xFF}, {0x15, 0x37, 0x1C, 0xFF}, {0x15, 0x27, 0x3A, 0xFF},
+    {0x37, 0x57, 0x75, 0xFF}, {0x06, 0x08, 0x20, 0xFF}, {0x07, 0x13, 0x26, 0xFF}, {0x20, 0x39, 0x4B, 0xFF},
+    {0x2C, 0x50, 0x89, 0xFF}, {0x15, 0x42, 0x6C, 0xFF}, {0x10, 0x32, 0x50, 0xFF}, {0x24, 0x16, 0x63, 0xFF},
+    {0x69, 0x20, 0x15, 0xFF}, {0x8C, 0x8D, 0x94, 0xFF}, {0x51, 0x60, 0x13, 0xFF}, {0x09, 0x0F, 0x02, 0xFF},
+    {0x8C, 0x57, 0x3A, 0xFF}, {0x52, 0x88, 0x8E, 0xFF}, {0x99, 0x5C, 0x52, 0xFF}, {0x99, 0x58, 0x1E, 0xFF},
+    {0x99, 0x3A, 0x63, 0xFF}, {0x99, 0x8F, 0x4E, 0xFF}, {0x99, 0x31, 0x1E, 0xFF}, {0x0D, 0x18, 0x42, 0xFF},
+    {0x52, 0x1E, 0x1E, 0xFF}, {0x42, 0x42, 0x0D, 0xFF}, {0x4C, 0x99, 0x1E, 0xFF}, {0x08, 0x2A, 0x1D, 0xFF},
+    {0x96, 0x82, 0x1D, 0xFF}, {0x19, 0x7F, 0x19, 0xFF}, {0x3B, 0x14, 0x1F, 0xFF}, {0x74, 0x52, 0x17, 0xFF},
+    {0x89, 0x3F, 0x8D, 0xFF}, {0x7E, 0x1A, 0x6C, 0xFF}, {0x0B, 0x37, 0x0B, 0xFF}, {0x27, 0x45, 0x0D, 0xFF},
+    {0x07, 0x1F, 0x24, 0xFF}, {0x78, 0x45, 0x73, 0xFF}, {0x8A, 0x65, 0x3A, 0xFF}, {0x73, 0x26, 0x17, 0xFF},
+    {0x31, 0x94, 0x90, 0xFF}, {0x56, 0x94, 0x1D, 0xFF}, {0x59, 0x16, 0x3D, 0xFF}, {0x1B, 0x8A, 0x2F, 0xFF},
+    {0x38, 0x16, 0x0B, 0xFF}, {0x04, 0x18, 0x04, 0xFF}, {0x35, 0x5D, 0x8E, 0xFF}, {0x2E, 0x3F, 0x5B, 0xFF},
+    {0x56, 0x1A, 0x28, 0xFF}, {0x4E, 0x0E, 0x27, 0xFF}, {0x70, 0x6C, 0x67, 0xFF}, {0x3B, 0x3E, 0x42, 0xFF},
+    {0x2E, 0x2D, 0x33, 0xFF}, {0x7B, 0x7E, 0x7D, 0xFF}, {0x4A, 0x44, 0x42, 0xFF}, {0x28, 0x34, 0x4E, 0xFF}
+};
+
+static unsigned char scanList[160000];
+static CStore<CPedModelInfo, 600> pedModels;
+static CStore<CAtomicModelInfo, 20000> atomicModels;
+static CStore<CVehicleModelInfo, 2512> vehicleModels;
+static CStore<CClumpModelInfo, 127> clumpModels;
+
+void Zion::Patches::InstallBeforeGame()
+{
+    // Clump models
+    Memory::Write<unsigned int>(0x4C64C8 + 1, (unsigned int)&clumpModels);
+    Memory::Write<unsigned int>(0x4C64DF + 1, (unsigned int)&clumpModels);
+    Memory::Write<unsigned int>(0x4C65FC + 2, (unsigned int)&clumpModels);
+    Memory::Write<unsigned int>(0x4C6740 + 1, (unsigned int)&clumpModels);
+    Memory::Write<unsigned int>(0x4C6751 + 1, (unsigned int)&clumpModels);
+    Memory::Write<unsigned int>(0x4C684B + 2, (unsigned int)&clumpModels);
+    Memory::Write<unsigned int>(0x84BCB0 + 1, (unsigned int)&clumpModels);
+    Memory::Write<unsigned int>(0x856290 + 1, (unsigned int)&clumpModels);
+    Memory::Write<unsigned int>(0x4C64D3 + 1, (unsigned int)&clumpModels + 4);
+    Memory::Write<unsigned int>(0x4C674A + 3, (unsigned int)&clumpModels + 4);
+    Memory::Write<unsigned char>(0x4C5EFB + 1, 127);
+    Memory::Write<unsigned char>(0x4C5905 + 1, 127);
+
+    // Peds models
+    Memory::Write<unsigned int>(0x004C6518, (unsigned int)&pedModels);
+    Memory::Write<unsigned int>(0x004C652F, (unsigned int)&pedModels);
+    Memory::Write<unsigned int>(0x004C67A1, (unsigned int)&pedModels);
+    Memory::Write<unsigned int>(0x0084BCF1, (unsigned int)&pedModels);
+    Memory::Write<unsigned int>(0x008562B1, (unsigned int)&pedModels);
+    Memory::Write<unsigned int>(0x004C67B3, (unsigned int)&pedModels);
+    Memory::Write<unsigned int>(0x004C660A, (unsigned int)&pedModels);
+    Memory::Write<unsigned int>(0x004C6859, (unsigned int)&pedModels);
+    Memory::Write<unsigned int>(0x004C67AD, (unsigned int)&pedModels + 4);
+    Memory::Write<unsigned int>(0x004C6523, (unsigned int)&pedModels + 4);
+    Memory::Write<unsigned int>(0x004C67DC, 600);
+    Memory::Write<unsigned int>(0x004C6396, 600);
+
+    // Atomic models
+    Memory::Write<unsigned int>(0x004C63E1, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C63FE, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C6621, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C689A, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C68E8, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C6927, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C6966, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C69A5, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C69E4, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C6A23, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x0084BBF1, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x00856231, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C6633, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C68B5, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C68F9, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C6938, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C6977, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C69B6, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C69F5, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C6A34, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C6865, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C65DA, (unsigned int)&atomicModels);
+    Memory::Write<unsigned int>(0x004C662D, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C68A5, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C68F3, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C6932, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C6971, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C69B0, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C69EF, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C6A2E, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C6822, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C6829, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C6877, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C6890, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C63F2, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C6881, (unsigned int)&atomicModels + 4);
+    Memory::Write<unsigned int>(0x004C5CBC, 20000);
+    Memory::Write<unsigned int>(0x004C5846, 20000);
+
+    // Vehicle models
+    Memory::Write<unsigned int>(0x004C64ED, (unsigned int)&vehicleModels);
+    Memory::Write<unsigned int>(0x004C6508, (unsigned int)&vehicleModels);
+    Memory::Write<unsigned int>(0x004C6771, (unsigned int)&vehicleModels);
+    Memory::Write<unsigned int>(0x0084BCD1, (unsigned int)&vehicleModels);
+    Memory::Write<unsigned int>(0x008562A1, (unsigned int)&vehicleModels);
+    Memory::Write<unsigned int>(0x004C6786, (unsigned int)&vehicleModels);
+    Memory::Write<unsigned int>(0x004C6604, (unsigned int)&vehicleModels);
+    Memory::Write<unsigned int>(0x004C6853, (unsigned int)&vehicleModels);
+    Memory::Write<unsigned int>(0x004C6780, (unsigned int)&vehicleModels + 4);
+    Memory::Write<unsigned int>(0x004C64F8, (unsigned int)&vehicleModels + 4);
+    Memory::Write<unsigned int>(0x004C5F5C, 2512);
+    Memory::Write<unsigned int>(0x004C6376, 2512);
+
+    // Increase "ColModel" pool
+    Memory::Write<unsigned int>(0x00551107, 40000);
+
+    // Increase "Vehicle" pool
+    Memory::Copy(0x551024, (void *)"\x6A\x00\x68\x00\x08\x00\x00", 7);
+
+    // Increase the entry info nodes
+    Memory::Copy(0x550FB9, (void *)"\x68\x00\x08\x00\x00", 5);
+
+    Memory::Write<const char *>(0x005B8F59, "zion/models/generic/vehicle.txd");
+}
+
+void Zion::Patches::Install()
+{
+    // (aru) Patch the VehicleStruct pool to have more than 50 vehicles
+    //       We'll use 127 (max is 211 vehicles)
+    //       We can't just patch the imm8 in the push due to it being unsigned
+    //       so, we'll use our intelligence to hack it in :)
+
+    Memory::Write<unsigned char>(0x5B8FDE, 0x6A);   // push imm8
+    Memory::Write<unsigned char>(0x5B8FDF, 0x00);   // 0
+    Memory::Write<unsigned char>(0x5B8FE0, 0x68);   // push imm32
+    Memory::Write<unsigned char>(0x5B8FE1, 200);    // 127 types
+    Memory::Write<unsigned char>(0x5B8FE2, 0x00);
+    Memory::Write<unsigned char>(0x5B8FE3, 0x00);
+    Memory::Write<unsigned char>(0x5B8FE4, 0x00);
+
+    // Increase "Buildings" pool
+    Memory::Write<unsigned int>(0x55105F, 20000);
+
+    // Increase "Dummys" pool
+    Memory::Write<unsigned int>(0x5510CF, 4000);
+
+    // Increase "PtrNode Single" pool
+    Memory::Write<unsigned int>(0x550F46, 100000);
+
+    // Increase "PtrNode Double" pool
+    Memory::Write<unsigned int>(0x550F82, 8000);
+
+    // Increase "EntryInfoNode" pool
+    Memory::Write<unsigned int>(0x550FBA, 5000);
+
+    // Increase "Objects" pool
+    Memory::Write<unsigned int>(0x551097, 3000);
+
+    // Increase matrix array pool
+    Memory::Write<unsigned int>(0x54F3A1, 6000);
+
+    // Increase the ped pool limit
+    Memory::Write<unsigned char>(0x550FF2, 240);
+
+    // And we need 210 ped intelligence too plz
+    Memory::Write<unsigned char>(0x551283, 240);
+        
+    // And a larger task pool
+    Memory::Write<unsigned char>(0x551140, 0x05); // 1524
+
+    // And a larger event pool
+    Memory::Write<unsigned char>(0x551178, 0x01); // 456
+
+    // More matrices
+    Memory::Write<unsigned char>(0x54F3A2, 0x15); // 4228
+
+    // No playidles anim loading.
+    Memory::Write<unsigned char>(0x86D1EC, 0);
+
+    // Increase pickup distance visibility
+    Memory::Write<float>(0x454CC9, 10000.0F);
+
+    // Increase bullet world range
+    Memory::Write<float>(0x7361B2, -20000.0F);
+    Memory::Write<float>(0x7361CB, 20000.0F);
+    Memory::Write<float>(0x7361E0, -20000.0F);
+    Memory::Write<float>(0x7361F5, 20000.0F);
+
+    // Disable vehicle gifts
+    Memory::Write<unsigned int>(0x006D170B, 0xE9);
+    Memory::Write<unsigned int>(0x006D170C, 0x006D17D5 - 0x006D170B - 5);
+
+    // Make Pay 'n' Spray always free
+    Memory::Write<bool>(0x96C009, true);
+
+    // Disable Pay 'n' Spray messages
+    Memory::Write<unsigned char>(0x447B80, 0xC3);
+
+    // Disable wanted levels for military zones
+    Memory::Write<unsigned char>(0x72DF0D, 0xEB);
+
+    // Disable cinematic camera for trains
+    Memory::Write<unsigned char>(0x52A535, 0);
+
+    // Disable pop-up stats menu
+    Memory::Write<unsigned char>(0x58FC2C, 0xEB);
+    Memory::Set(0x58FC2E, 0x90, 30);
+
+    // No place name rendering
+    Memory::Set(0x5720A5, 0x90, 5);
+
+    // No vehicle name rendering
+    Memory::Set(0x58FBE9, 0x90, 5);
+
+    // Prevent replays
+    Memory::Set(0x53C090, 0x90, 5);
+
+    // No more interiors peds
+    Memory::Set(0x440833, 0x90, 8);
+
+    // (ped shadows crash)
+    Memory::Set(0x53EA08, 0x90, 10);
+
+    // Unknown from CPlayerPed::ProcessControl causes crash
+    Memory::Set(0x609C08, 0x90, 39);
+
+    // Make the game not to removing pickups and other entities in area when exiting interiors
+	Memory::Set(0x5952A6, 0x90, 5);
+
+    // Don't go back to player anims, use the peds IDE
+	Memory::Set(0x609A4E, 0x90, 6);
+
+    // No wasted message
+	Memory::Set(0x56E5AD, 0x90, 5);
+
+    // This removes the random weapon pickups
+    Memory::Set(0x5B47B0, 0xC3, 1);
+
+    // NOP game generated pickups in interiors
+    Memory::Set(0x593D7C, 0x90, 5);
+
+    // Make the game not to removing pickups and other entities in area when exiting interiors
+    Memory::Set(0x5952A6, 0x90, 5);
+
+    // CarCtl::GenerateRandomCars nulled from CGame::Process
+    Memory::Set(0x53C1C1, 0x90, 5);
+
+    // Make the game not to remove weapons when entering a vehicle
+    Memory::Set(0x64DB49, 0x90, 9);
+    Memory::Set(0x64BC9F, 0x90, 9);
+    Memory::Set(0x64B872, 0x90, 9);
+
+    // Disable cutscene processing
+    Memory::Set(0x53BF28, 0x90, 5);
+
+    // Stop taking $100 or maybe more every death
+    Memory::Set(0x442E47, 0x90, 5);
+    Memory::Set(0x443200, 0x90, 6);
+
+    // Disable camera jump-cut after spawning
+    Memory::Set(0x4422F9, 0x90, 5);
+
+    // No IPL vehicle
+    Memory::Set(0x53C06A, 0x90, 5);
+
+    // Remove sun/moon coronas
+	Memory::Set(0x53C136, 0x90, 5);
+
+    // This removes the random weapon pickups (e.g. on the hill near chilliad)
+	Memory::Set(0x5B47B0, 0xC3, 1);
+
+    // NOP game generated pickups in interiors
+	Memory::Set(0x593D7C, 0x90, 5);
+
+    // Respawn and Interior
+	Memory::Write<unsigned char>(0x4090A0, 0xC3);
+	Memory::Set(0x441482, 0x90, 5);
+
+    // Pay 'n' Spray accepts all vehicles
+    Memory::Set(0x44AC75, 0x90, 5);
+    Memory::Write<unsigned char>(0x44AC75, 0xB0); // mov al, 1
+    Memory::Write<unsigned char>(0x44AC76, 0x01);
+
+    // Patch for new vehicle colors
+    Memory::Write<unsigned int>(0x44B1C1, (unsigned int)&vehicleColors);
+    Memory::Write<unsigned int>(0x4C8390, (unsigned int)&vehicleColors);
+    Memory::Write<unsigned int>(0x4C8399, (unsigned int)&vehicleColors->green);
+    Memory::Write<unsigned int>(0x4C83A3, (unsigned int)&vehicleColors->blue);
+    Memory::Write<unsigned int>(0x5817CC, (unsigned int)&vehicleColors);
+    Memory::Write<unsigned int>(0x582176, (unsigned int)&vehicleColors);
+    Memory::Write<unsigned int>(0x6A6FFA, (unsigned int)&vehicleColors);
+
+    // Patch for creating Freight (537 train) without a trailer
+    Memory::Write<unsigned char>(0x8D477C, 0);
+    Memory::Write<unsigned char>(0x8D477D, 0);
+
+    // Scan list
+    Memory::Write<unsigned int>(0x005DC7AA, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0041A85D, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0041A864, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00408259, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00711B32, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00699CF8, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x004092EC, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0040914E, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00408702, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00564220, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00564172, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00563845, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0084E9C2, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0085652D, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0040D68C + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x005664D7 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00566586 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00408706 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056B3B1 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056AD91 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056A85F + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x005675FA + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056CD84 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056CC79 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056CB51 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056CA4A + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056C664 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056C569 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056C445 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056C341 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056BD46 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056BC53 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056BE56 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056A940 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00567735 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00546738 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0054BB23 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x006E31AA + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0040DC29 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00534A09 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00534D6B + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00564B59 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00564DA9 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0067FF5D + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00568CB9 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00568EFB + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00569F57 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00569537 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00569127 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056B4B5 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056B594 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056B2C3 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056AF74 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056AE95 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056BF4F + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056ACA3 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056A766 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056A685 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0070B9BA + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0056479D + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0070ACB2 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x006063C7 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x00699CFE + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0041A861 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0040E061 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0040DF5E + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0040DDCE + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0040DB0E + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x0040D98C + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x01566855 + 3, (unsigned int)&scanList[0]);
+    Memory::Write<unsigned int>(0x004091C5 + 3, (unsigned int)&scanList[0] + 4);
+    Memory::Write<unsigned int>(0x00409367 + 3, (unsigned int)&scanList[0] + 4);
+    Memory::Write<unsigned int>(0x0040D9C5 + 3, (unsigned int)&scanList[0] + 4);
+    Memory::Write<unsigned int>(0x0040DB47 + 3, (unsigned int)&scanList[0] + 4);
+    Memory::Write<unsigned int>(0x0040DC61 + 3, (unsigned int)&scanList[0] + 4);
+    Memory::Write<unsigned int>(0x0040DE07 + 3, (unsigned int)&scanList[0] + 4);
+    Memory::Write<unsigned int>(0x0040DF97 + 3, (unsigned int)&scanList[0] + 4);
+    Memory::Write<unsigned int>(0x0040E09A + 3, (unsigned int)&scanList[0] + 4);
+    Memory::Write<unsigned int>(0x00534A98 + 3, (unsigned int)&scanList[0] + 4);
+    Memory::Write<unsigned int>(0x00534DFA + 3, (unsigned int)&scanList[0] + 4);
+    Memory::Write<unsigned int>(0x0071CDB0 + 3, (unsigned int)&scanList[0] + 4);
+    Memory::Write<unsigned int>(0x005634A6, (unsigned int)&scanList[0] + sizeof(scanList));
+    Memory::Write<unsigned int>(0x005638DF, (unsigned int)&scanList[0] + sizeof(scanList));
+    Memory::Write<unsigned int>(0x0056420F, (unsigned int)&scanList[0] + sizeof(scanList));
+    Memory::Write<unsigned int>(0x00564283, (unsigned int)&scanList[0] + sizeof(scanList));    
+    Memory::Write<unsigned int>(0x0040936A, (unsigned int)&scanList[0] + 4);
+    Memory::Set(0xB7D0B8, 0, 115200);
+}

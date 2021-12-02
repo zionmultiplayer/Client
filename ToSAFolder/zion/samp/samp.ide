@@ -1,0 +1,2069 @@
+# ------------------------------------------------------
+# ------------------------------------------------------
+# SA:MP IDE File
+# --------------
+# Objects in this file were created and/or edited by (in alphabetical order):
+# cessil, Kalcor, Matite and Micky (September 2010 to April 2015)
+#
+# Go to the SA:MP wiki for information about this file:
+# http://wiki.sa-mp.com
+# ------------------------------------------------------
+#
+# IMG File Fixes in SA:MP 0.3.7:
+# * Fixed the elevator COL brightness (ID:18755 - was 0 brightness)
+# * Fixed the missing metal grating texture for AnimTube (ID:19901)
+# * Fixed some of the draw distances (IDs:19475 to 19483 - changed from 300 to 299)
+# * Fixed the flags on one of the walls (ID:19371 - changed from 2097284 to 0)
+# * Fixed the wall sections COL brightness (IDs:19353 to 19465 - was 255 brightness)
+# * Replaced the face COLs with box COLs on many of the wall sections (IDs:19353 to 19465)
+# * Fixed the hot air balloons COL brightness (IDs:19332 to 19338 - was 0 brightness)
+# * Added mine.txd from VC to fix the existing GTASA landmine that had no texture (ID:1213)
+#   Note: if you want a non-dynamic mine use ID:19589
+# * Fixed the deer COL brightness (ID:19315 - was 0 brightness)
+# * Fixed the container COL brightness (ID:19321 - was 0 brightness)
+# * Changed the flags on EnExMarker2 (ID:19197 - changed from 2097156 to 2097220)
+# * Changed the flags on EnExMarker3 (ID:19198 - changed from 2097156 to 2097220)
+# * Added the UFO model to old unused object ID slot (ID:18846)
+# * Fixed the pumpkin COL brightness (ID:19320 - was 0 brightness)
+# * Added the security keypad 2 model to old unused object ID slot (ID:19305)
+# * Added the red flag model to old unused object ID slot (ID:19306)
+# * Added the blue flag model to old unused object ID slot (ID:19307)
+# * Added the ATM non-dynamic model to old unused object ID slot (ID:19324)
+# * Updated wall001 (ID:19353) to use vertex colours so it does not respond to dynamic lighting
+# * Updated wall031 (ID:19383) to use vertex colours so it does not respond to dynamic lighting
+# * Updated wall047 (ID:19399) to use vertex colours so it does not respond to dynamic lighting
+# * Updated wall066 (ID:19426) to use vertex colours so it does not respond to dynamic lighting
+# * Updated wall085 (ID:19445) to use vertex colours so it does not respond to dynamic lighting
+# * Updated SF Harry Plums building (ID:19486) to open the side doors, fix vertex colours and COL
+#
+#
+# ------------------------------------------------------
+# The objects defined below have been added by SA:MP.
+# You can replace them to define new objects
+# (but they will only be visible to you).
+#
+# Usable object IDs are:
+# * 18631 to 19999 (1369 total) reserved for SAMP.IDE
+# * 11682 to 12799 (1118 total) reserved for SAMP.IDE
+# * 15065 to 15999 (935 total) reserved for CUSTOM.IDE
+# ------------------------------------------------------
+#
+objs
+# ------------------------------------------------------
+# No Model File (used internally by SA:MP - do not remove or replace this model)
+18631, NoModelFile, NoModelFile, 50, 0
+# ------------------------------------------------------
+# Holding Objects
+18632, FishingRod, FishingRod, 100, 0
+18633, GTASAWrench1, MatTextures, 100, 0
+18634, GTASACrowbar1, MatTextures, 100, 0
+18635, GTASAHammer1, MatTextures, 100, 0
+18636, PoliceCap1, MatTextures, 100, 2097152
+18637, PoliceShield1, MatTextures, 100, 4
+18638, HardHat1, wmycon, 100, 2097152
+18639, BlackHat1, dwmolc2, 100, 2097152
+18640, Hair1, smyst, 100, 2097152
+18641, Flashlight1, Flashlight1, 100, 0
+18642, Taser1, Taser1, 100, 0
+18643, LaserPointer1, LaserPointer1, 100, 4
+18644, Screwdriver1, MatTextures, 100, 0
+18645, MotorcycleHelmet1, MatClothes, 100, 2097152
+# ------------------------------------------------------
+# Lights
+18646, PoliceLight1, MatColours, 150, 0
+18647, RedNeonTube1, MatTextures, 150, 0
+18648, BlueNeonTube1, MatTextures, 150, 0
+18649, GreenNeonTube1, MatTextures, 150, 0
+18650, YellowNeonTube1, MatTextures, 150, 0
+18651, PinkNeonTube1, MatTextures, 150, 0
+18652, WhiteNeonTube1, MatTextures, 150, 0
+18653, DiscoLightRed, Carter_block, 150, 0
+18654, DiscoLightGreen, Carter_block, 150, 0
+18655, DiscoLightBlue, Carter_block, 150, 0
+18656, LightBeamWhite, LightBeams, 200, 2097156
+18657, LightBeamRed, LightBeams, 200, 2097156
+18658, LightBeamBlue, LightBeams, 200, 2097156
+# ------------------------------------------------------
+# Spray Tags
+18659, SprayTag1, SprayTags, 50, 4
+18660, SprayTag2, SprayTags, 50, 4
+18661, SprayTag3, SprayTags, 50, 4
+18662, SprayTag4, SprayTags, 50, 4
+18663, SprayTag5, SprayTags, 50, 4
+18664, SprayTag6, SprayTags, 50, 4
+18665, SprayTag7, SprayTags, 50, 4
+18666, SprayTag8, SprayTags, 50, 4
+18667, SprayTag9, SprayTags, 50, 4
+# ------------------------------------------------------
+# Particle Effects
+18668, blood_heli, MatTextures, 100, 0
+18669, boat_prop, MatTextures, 100, 0
+18670, camflash, MatTextures, 100, 0
+18671, carwashspray, MatTextures, 100, 0
+18672, cementp, MatTextures, 100, 0
+18673, cigarette_smoke, MatTextures, 100, 0
+18674, cloudfast, MatTextures, 100, 0
+18675, coke_puff, MatTextures, 100, 0
+18676, coke_trail, MatTextures, 100, 0
+18677, exhale, MatTextures, 100, 0
+18678, explosion_barrel, MatTextures, 100, 0
+18679, explosion_crate, MatTextures, 100, 0
+18680, explosion_door, MatTextures, 100, 0
+18681, explosion_fuel_car, MatTextures, 100, 0
+18682, explosion_large, MatTextures, 100, 0
+18683, explosion_medium, MatTextures, 100, 0
+18684, explosion_molotov, MatTextures, 100, 0
+18685, explosion_small, MatTextures, 100, 0
+18686, explosion_tiny, MatTextures, 100, 0
+18687, extinguisher, MatTextures, 100, 0
+18688, fire, MatTextures, 150, 0
+18689, fire_bike, MatTextures, 100, 0
+18690, fire_car, MatTextures, 100, 0
+18691, fire_large, MatTextures, 100, 0
+18692, fire_med, MatTextures, 100, 0
+18693, Flame99, MatTextures, 100, 0
+18694, flamethrowerp, MatTextures, 100, 0
+18695, gunflash, MatTextures, 100, 0
+18696, gunsmoke, MatTextures, 100, 0
+18697, heli_dust, MatTextures, 100, 0
+18698, insects, MatTextures, 100, 0
+18699, jetpackp, MatTextures, 100, 0
+18700, jetthrust, MatTextures, 100, 0
+18701, molotov_flame, MatTextures, 100, 0
+18702, nitrop, MatTextures, 100, 0
+18703, overheat_car, MatTextures, 100, 0
+18704, overheat_car_elec, MatTextures, 100, 0
+18705, petrolcan, MatTextures, 100, 0
+18706, prt_blood, MatTextures, 100, 0
+18707, prt_boatsplash, MatTextures, 100, 0
+18708, prt_bubble, MatTextures, 100, 0
+18709, prt_cardebris, MatTextures, 100, 0
+18710, prt_collisionsmoke, MatTextures, 100, 0
+18711, prt_glass, MatTextures, 100, 0
+18712, prt_gunshell, MatTextures, 100, 0
+18713, prt_sand2, MatTextures, 100, 0
+18714, prt_sand, MatTextures, 100, 0
+18715, prt_smoke_huge, MatTextures, 150, 0
+18716, prt_smoke_expand, MatTextures, 100, 0
+18717, prt_spark, MatTextures, 100, 0
+18718, prt_spark_2, MatTextures, 100, 0
+18719, prt_wake, MatTextures, 100, 0
+18720, prt_watersplash, MatTextures, 100, 0
+18721, prt_wheeldirt, MatTextures, 100, 0
+18722, puke, MatTextures, 100, 0
+18723, riot_smoke, MatTextures, 100, 0
+18724, shootlight, MatTextures, 100, 0
+18725, smoke30lit, MatTextures, 100, 0
+18726, smoke30m, MatTextures, 100, 0
+18727, smoke50lit, MatTextures, 100, 0
+18728, smoke_flare, MatTextures, 100, 0
+18729, spraycanp, MatTextures, 100, 0
+18730, tank_fire, MatTextures, 100, 0
+18731, teargas99, MatTextures, 100, 0
+18732, teargasAD, MatTextures, 100, 0
+18733, tree_hit_fir, MatTextures, 100, 0
+18734, tree_hit_palm, MatTextures, 100, 0
+18735, vent2, MatTextures, 100, 0
+18736, vent, MatTextures, 100, 0
+18737, wallbust, MatTextures, 100, 0
+18738, water_fnt_tme, MatTextures, 100, 0
+18739, water_fountain, MatTextures, 100, 0
+18740, water_hydrant, MatTextures, 100, 0
+18741, water_ripples, MatTextures, 100, 0
+18742, water_speed, MatTextures, 100, 0
+18743, water_splash, MatTextures, 100, 0
+18744, water_splash_big, MatTextures, 100, 0
+18745, water_splsh_sml, MatTextures, 100, 0
+18746, water_swim, MatTextures, 100, 0
+18747, waterfall_end, MatTextures, 100, 0
+18748, WS_factorysmoke, MatTextures, 100, 0
+# ------------------------------------------------------
+# SA:MP Logos
+18749, SAMPLogoSmall, MatTextures, 150, 0
+18750, SAMPLogoBig, MatTextures, 299, 0
+# ------------------------------------------------------
+# Land Masses
+18751, IslandBase1, MatTextures, 299, 0
+18752, Volcano, Volcano, 299, 4
+# ------------------------------------------------------
+# Base Sections
+18753, Base125mx125m1, BaseSections, 299, 2097156
+18754, Base250mx250m1, BaseSections, 299, 2097156
+# ------------------------------------------------------
+# Elevator from VC
+18755, VCElevator1, VCInteriors, 50, 2097152
+18756, ElevatorDoor1, VCInteriors, 50, 0
+18757, ElevatorDoor2, VCInteriors, 50, 0
+18758, VCElevatorFront1, VCInteriors, 50, 2097152
+# ------------------------------------------------------
+# DM Cages
+18759, DMCage1, DMCages, 250, 2097156
+18760, DMCage2, DMCages, 250, 2097156
+# ------------------------------------------------------
+# Racing
+18761, RaceFinishLine1, MatRacing, 220, 2097156
+# ------------------------------------------------------
+# Parkour
+18762, Concrete1mx1mx5m, ConcreteBits, 100, 0
+18763, Concrete3mx3mx5m, ConcreteBits, 100, 0
+18764, Concrete5mx5mx5m, ConcreteBits, 100, 0
+18765, Concrete10mx10mx5m, ConcreteBits, 100, 0
+18766, Concrete10mx1mx5m, ConcreteBits, 100, 0
+18767, ConcreteStair1, ConcreteBits, 150, 0
+# ------------------------------------------------------
+# Sky Diving Platforms
+18768, SkyDivePlatform1, SkyDivePlatforms, 299, 2097152
+18769, SkyDivePlatform1a, SkyDivePlatforms, 299, 2097156
+18770, SkyDivePlatform1b, SkyDivePlatforms, 299, 0
+18771, SpiralStair1, MatStairs, 299, 0
+# ------------------------------------------------------
+# Tunnel Sections
+18772, TunnelSection1, TunnelSections, 299, 4
+18773, TunnelJoinSection1, TunnelSections, 299, 4
+18774, TunnelJoinSection2, TunnelSections, 299, 4
+18775, TunnelJoinSection3, TunnelSections, 299, 4
+18776, TunnelJoinSection4, TunnelSections, 299, 4
+18777, TunnelSpiral1, TunnelSections, 299, 4
+# ------------------------------------------------------
+# Ramps
+18778, RampT1, landjump, 220, 0
+18779, RampT2, MatRamps, 280, 0
+18780, RampT3, MatRamps, 280, 0
+18781, MeshRampBig, MatRamps, 220, 4
+18782, CookieRamp1, CookieRamp1, 220, 0
+18783, FunBoxTop1, MatRamps, 220, 2097284
+18784, FunBoxRamp1, MatRamps, 220, 2097284
+18785, FunBoxRamp2, MatRamps, 220, 2097284
+18786, FunBoxRamp3, MatRamps, 220, 2097284
+18787, FunBoxRamp4, MatRamps, 220, 2097284
+# ------------------------------------------------------
+# Modular Road Sections
+18788, MRoad40m, cs_ebridge, 250, 0
+18789, MRoad150m, cs_ebridge, 299, 0
+18790, MRoadBend180Deg1, cs_ebridge, 250, 0
+18791, MRoadBend45Deg, cs_ebridge, 250, 0
+18792, MRoadTwist15DegL, cs_ebridge, 250, 0
+18793, MRoadTwist15DegR, cs_ebridge, 250, 0
+18794, MRoadBend15Deg1, cs_ebridge, 250, 0
+18795, MRoadBend15Deg2, cs_ebridge, 250, 0
+18796, MRoadBend15Deg3, cs_ebridge, 250, 0
+18797, MRoadBend15Deg4, cs_ebridge, 250, 0
+18798, MRoadB45T15DegL, cs_ebridge, 250, 0
+18799, MRoadB45T15DegR, cs_ebridge, 250, 0
+18800, MRoadHelix1, MRoadHelix1, 250, 0
+18801, MRoadLoop1, cs_ebridge, 250, 0
+# ------------------------------------------------------
+# Modular Bridge Sections
+18802, MBridgeRamp1, cs_ebridge, 200, 0
+18803, MBridge150m1, cs_ebridge, 250, 0
+18804, MBridge150m2, cs_ebridge, 250, 0
+18805, MBridge150m3, cs_ebridge, 250, 0
+18806, MBridge150m4, cs_ebridge, 250, 0
+18807, MBridge75mHalf, cs_ebridge, 250, 0
+# ------------------------------------------------------
+# Tubes and Funnels
+18808, Tube50m1, MatTextures, 299, 0
+18809, Tube50mGlass1, MatTextures, 299, 4
+18810, Tube50mBulge1, MatTextures, 299, 0
+18811, Tube50mGlassBulge1, MatTextures, 299, 4
+18812, Tube50mFunnel1, MatTextures, 299, 0
+18813, Tube50mGlassFunnel1, MatTextures, 299, 4
+18814, Tube50mFunnel2, MatTextures, 299, 0
+18815, Tube50mFunnel3, MatTextures, 299, 0
+18816, Tube50mFunnel4, MatTextures, 299, 0
+18817, Tube50mTSection1, MatTextures, 299, 0
+18818, Tube50mGlassT1, MatTextures, 299, 4
+18819, Tube50mPlus1, MatTextures, 299, 0
+18820, Tube50mGlassPlus1, MatTextures, 299, 4
+18821, Tube50m45Bend1, MatTextures, 299, 0
+18822, Tube50mGlass45Bend1, MatTextures, 299, 4
+18823, Tube50m90Bend1, MatTextures, 299, 0
+18824, Tube50mGlass90Bend1, MatTextures, 299, 4
+18825, Tube50m180Bend1, MatTextures, 299, 0
+18826, Tube50mGlass180Bend, MatTextures, 299, 4
+18827, Tube100m2, MatTextures, 299, 0
+18828, SpiralTube1, MatRamps, 299, 2097156
+18829, RTexturetube, MickyTextures, 299, 0
+18830, RTexturebridge, MickyTextures, 299, 0
+18831, RT25mBend90Tube1, MickyTextures, 299, 0
+18832, RT25mBend180Tube1, MickyTextures, 299, 0
+18833, RT50mBend45Tube1, MickyTextures, 299, 0
+18834, RT50mBend180Tube1, MickyTextures, 299, 0
+18835, RBFunnel, MickyTextures, 299, 0
+18836, RBHalfpipe, MickyTextures, 299, 0
+18837, RB25mBend90Tube, MickyTextures, 299, 0
+18838, RB25mBend180Tube, MickyTextures, 299, 0
+18839, RB50mBend45Tube, MickyTextures, 299, 0
+18840, RB50mBend90Tube, MickyTextures, 299, 0
+18841, RB50mBend180Tube, MickyTextures, 299, 0
+18842, RB50mTube, MickyTextures, 299, 0
+# ------------------------------------------------------
+# Spheres
+18843, GlassSphere1, MatTextures, 299, 4
+18844, WaterUVAnimSphere1, MatTextures, 280, 4
+18845, RTexturesphere, MickyTextures, 299, 0
+# ------------------------------------------------------
+# Extracted UFO
+# -------------
+18846, UFO, des_ufoinn, 299, 0
+# ------------------------------------------------------
+# More Stuff
+18847, HugeHalfPipe1, glenpark7_lae, 299, 0
+18848, SamSiteNonDynamic, milbase, 150, 0
+18849, ParaDropNonDynamic, kmb_chute, 150, 0
+18850, HeliPad1, sfe_copchop, 200, 4
+# ------------------------------------------------------
+# Objects added in Beta Team IMG 1 (154 Objects)
+18851, TubeToRoad1, MatTextures, 299, 0
+18852, Tube100m1, MatTextures, 299, 0
+18853, Tube100m45Bend1, MatTextures, 299, 0
+18854, Tube100m90Bend1, MatTextures, 299, 0
+18855, Tube100m180Bend1, MatTextures, 299, 0
+18856, Cage5mx5mx3m, MatTextures, 200, 4
+18857, Cage20mx20mx10m, MatTextures, 250, 4
+18858, FoamHoop1, MatRamps, 250, 0
+18859, QuarterPipe1, glenpark7_lae, 250, 0
+#18860, skyscrpunbuilt2, buildsite, 299, 0
+#18861, scaffoldlift, buildsite, 150, 0
+18862, GarbagePileRamp1, MatTextures, 250, 2097152
+18863, SnowArc1, FakeSnow1, 299, 2097156
+18864, FakeSnow1, FakeSnow1, 299, 2097156
+18865, MobilePhone1, MobilePhone1, 100, 0
+18866, MobilePhone2, MobilePhone2, 100, 0
+18867, MobilePhone3, MobilePhone3, 100, 0
+18868, MobilePhone4, MobilePhone4, 100, 0
+18869, MobilePhone5, MobilePhone5, 100, 0
+18870, MobilePhone6, MobilePhone6, 100, 0
+18871, MobilePhone7, MobilePhone7, 100, 0
+18872, MobilePhone8, MobilePhone8, 100, 0
+18873, MobilePhone9, MobilePhone9, 100, 0
+18874, MobilePhone10, MobilePhone10, 100, 0
+18875, Pager1, Pager1, 100, 0
+18876, BigGreenGloop1, gloopX, 200, 2097152
+18877, FerrisWheelBit, FerrisWheel, 299, 4
+18878, FerrisBaseBit, FerrisWheel, 299, 2097156
+18879, FerrisCageBit, FerrisWheel, 200, 0
+18880, SpeedCamera1, SpeedCamera1, 150, 0
+18881, SkyDivePlatform2, MatRacing, 299, 2097152
+18882, HugeBowl1, HugeBowls, 299, 0
+18883, HugeBowl2, HugeBowls, 299, 0
+18884, HugeBowl3, HugeBowls, 299, 4
+18885, GunVendingMachine1, GunVendingMachine1, 50, 0
+18886, ElectroMagnet1, ElectroMagnet1, 150, 0
+18887, ForceField1, ForceFields, 150, 4
+18888, ForceField2, ForceFields, 150, 4
+18889, ForceField3, ForceFields, 150, 4
+18890, Rake1, Rake1, 50, 0
+18891, Bandana1, MatClothes, 100, 2097152
+18892, Bandana2, MatClothes, 100, 2097152
+18893, Bandana3, MatClothes, 100, 2097152
+18894, Bandana4, MatClothes, 100, 2097152
+18895, Bandana5, MatClothes, 100, 2097152
+18896, Bandana6, MatClothes, 100, 2097152
+18897, Bandana7, MatClothes, 100, 2097152
+18898, Bandana8, MatClothes, 100, 2097152
+18899, Bandana9, MatClothes, 100, 2097152
+18900, Bandana10, MatClothes, 100, 2097152
+18901, Bandana11, MatClothes, 100, 2097152
+18902, Bandana12, MatClothes, 100, 2097152
+18903, Bandana13, MatClothes, 100, 2097152
+18904, Bandana14, MatClothes, 100, 2097152
+18905, Bandana15, MatClothes, 100, 2097152
+18906, Bandana16, MatClothes, 100, 2097152
+18907, Bandana17, MatClothes, 100, 2097152
+18908, Bandana18, MatClothes, 100, 2097152
+18909, Bandana19, MatClothes, 100, 2097152
+18910, Bandana20, MatClothes, 100, 2097152
+18911, Mask1, MatClothes, 100, 2097152
+18912, Mask2, MatClothes, 100, 2097152
+18913, Mask3, MatClothes, 100, 2097152
+18914, Mask4, MatClothes, 100, 2097152
+18915, Mask5, MatClothes, 100, 2097152
+18916, Mask6, MatClothes, 100, 2097152
+18917, Mask7, MatClothes, 100, 2097152
+18918, Mask8, MatClothes, 100, 2097152
+18919, Mask9, MatClothes, 100, 2097152
+18920, Mask10, MatClothes, 100, 2097152
+18921, Beret1, MatClothes, 100, 2097152
+18922, Beret2, MatClothes, 100, 2097152
+18923, Beret3, MatClothes, 100, 2097152
+18924, Beret4, MatClothes, 100, 2097152
+18925, Beret5, MatClothes, 100, 2097152
+18926, Hat1, MatClothes, 100, 2097152
+18927, Hat2, MatClothes, 100, 2097152
+18928, Hat3, MatClothes, 100, 2097152
+18929, Hat4, MatClothes, 100, 2097152
+18930, Hat5, MatClothes, 100, 2097152
+18931, Hat6, MatClothes, 100, 2097152
+18932, Hat7, MatClothes, 100, 2097152
+18933, Hat8, MatClothes, 100, 2097152
+18934, Hat9, MatClothes, 100, 2097152
+18935, Hat10, MatClothes, 100, 2097152
+18936, Helmet1, MatClothes, 100, 2097152
+18937, Helmet2, MatClothes, 100, 2097152
+18938, Helmet3, MatClothes, 100, 2097152
+18939, CapBack1, MatClothes, 100, 2097152
+18940, CapBack2, MatClothes, 100, 2097152
+18941, CapBack3, MatClothes, 100, 2097152
+18942, CapBack4, MatClothes, 100, 2097152
+18943, CapBack5, MatClothes, 100, 2097152
+18944, HatBoater1, MatClothes, 100, 2097152
+18945, HatBoater2, MatClothes, 100, 2097152
+18946, HatBoater3, MatClothes, 100, 2097152
+18947, HatBowler1, MatClothes, 100, 2097152
+18948, HatBowler2, MatClothes, 100, 2097152
+18949, HatBowler3, MatClothes, 100, 2097152
+18950, HatBowler4, MatClothes, 100, 2097152
+18951, HatBowler5, MatClothes, 100, 2097152
+18952, BoxingHelmet1, MatClothes, 100, 2097152
+18953, CapKnit1, MatClothes, 100, 2097152
+18954, CapKnit2, MatClothes, 100, 2097152
+18955, CapOverEye1, MatClothes, 100, 2097152
+18956, CapOverEye2, MatClothes, 100, 2097152
+18957, CapOverEye3, MatClothes, 100, 2097152
+18958, CapOverEye4, MatClothes, 100, 2097152
+18959, CapOverEye5, MatClothes, 100, 2097152
+18960, CapRimUp1, MatClothes, 100, 2097152
+18961, CapTrucker1, MatClothes, 100, 2097152
+18962, CowboyHat2, CowboyHats, 100, 2097152
+18963, CJElvisHead, MatClothes, 100, 2097152
+18964, SkullyCap1, MatClothes, 100, 2097152
+18965, SkullyCap2, MatClothes, 100, 2097152
+18966, SkullyCap3, MatClothes, 100, 2097152
+18967, HatMan1, MatClothes, 100, 2097152
+18968, HatMan2, MatClothes, 100, 2097152
+18969, HatMan3, MatClothes, 100, 2097152
+18970, HatTiger1, MatClothes, 100, 2097152
+18971, HatCool1, MatClothes, 100, 2097152
+18972, HatCool2, MatClothes, 100, 2097152
+18973, HatCool3, MatClothes, 100, 2097152
+18974, MaskZorro1, MatClothes, 100, 2097152
+18975, Hair2, Hair2, 100, 2097152
+18976, MotorcycleHelmet2, MatClothes, 100, 2097152
+18977, MotorcycleHelmet3, MatClothes, 100, 2097152
+18978, MotorcycleHelmet4, noncolored, 100, 2097152
+18979, MotorcycleHelmet5, MatClothes, 100, 2097152
+18980, Concrete1mx1mx25m, ConcreteBits, 150, 0
+18981, Concrete1mx25mx25m, ConcreteBits, 150, 0
+18982, Tube100m3, MatTextures, 299, 0
+18983, Tube100m4, MatTextures, 299, 0
+18984, Tube100m5, MatTextures, 299, 0
+18985, Tube100m6, MatTextures, 299, 0
+18986, TubeToPipe1, MatTextures, 299, 0
+18987, Tube25m1, MatTextures, 299, 0
+18988, Tube25mCutEnd1, MatTextures, 299, 0
+18989, Tube25m45Bend1, MatTextures, 299, 0
+18990, Tube25m90Bend1, MatTextures, 299, 0
+18991, Tube25m180Bend1, MatTextures, 299, 0
+18992, Tube10m45Bend1, MatTextures, 299, 0
+18993, Tube10m90Bend1, MatTextures, 299, 0
+18994, Tube10m180Bend1, MatTextures, 299, 0
+18995, Tube5m1, MatTextures, 299, 0
+18996, Tube5m45Bend1, MatTextures, 299, 0
+18997, Tube1m1, MatTextures, 299, 0
+18998, Tube200m1, MatTextures, 299, 0
+18999, Tube200mBendy1, MatTextures, 299, 0
+19000, Tube200mBulge1, MatTextures, 299, 0
+19001, VCWideLoop1, MatRamps, 250, 0
+19002, FireHoop1, MatRamps, 250, 0
+19003, RampT5, MatRamps, 280, 0
+19004, RoundBuilding1, RoundBuilding1, 299, 2097156
+19005, RampT4, MatRamps, 280, 0
+19006, GlassesType1, MatGlasses, 100, 2097156
+19007, GlassesType2, MatGlasses, 100, 2097156
+19008, GlassesType3, MatGlasses, 100, 2097156
+19009, GlassesType4, MatGlasses, 100, 2097156
+19010, GlassesType5, MatGlasses, 100, 2097156
+19011, GlassesType6, MatGlasses, 100, 2097156
+19012, GlassesType7, MatGlasses, 100, 2097156
+19013, GlassesType8, MatGlasses, 100, 2097156
+19014, GlassesType9, MatGlasses, 100, 2097156
+19015, GlassesType10, MatGlasses, 100, 2097156
+19016, GlassesType11, MatGlasses, 100, 2097156
+19017, GlassesType12, MatGlasses, 100, 2097156
+19018, GlassesType13, MatGlasses, 100, 2097156
+19019, GlassesType14, MatGlasses, 100, 2097156
+19020, GlassesType15, MatGlasses, 100, 2097156
+19021, GlassesType16, MatGlasses, 100, 2097156
+19022, GlassesType17, MatGlasses, 100, 2097156
+19023, GlassesType18, MatGlasses, 100, 2097156
+19024, GlassesType19, MatGlasses, 100, 2097156
+19025, GlassesType20, MatGlasses, 100, 2097156
+19026, GlassesType21, MatGlasses, 100, 2097156
+19027, GlassesType22, MatGlasses, 100, 2097156
+19028, GlassesType23, MatGlasses, 100, 2097156
+19029, GlassesType24, MatGlasses, 100, 2097156
+19030, GlassesType25, MatGlasses, 100, 2097156
+19031, GlassesType26, MatGlasses, 100, 2097156
+19032, GlassesType27, MatGlasses, 100, 2097156
+19033, GlassesType28, MatGlasses, 100, 2097156
+19034, GlassesType29, MatGlasses, 100, 2097156
+19035, GlassesType30, MatGlasses, 100, 2097156
+19036, HockeyMask1, MatHockey, 100, 2097156
+19037, HockeyMask2, MatHockey, 100, 2097156
+19038, HockeyMask3, MatHockey, 100, 2097156
+19039, WatchType1, MatWatches, 100, 2097156
+19040, WatchType2, MatWatches, 100, 2097156
+19041, WatchType3, MatWatches, 100, 2097156
+19042, WatchType4, MatWatches, 100, 2097156
+19043, WatchType5, MatWatches, 100, 2097156
+19044, WatchType6, MatWatches, 100, 2097156
+19045, WatchType7, MatWatches, 100, 2097156
+19046, WatchType8, MatWatches, 100, 2097156
+19047, WatchType9, MatWatches, 100, 2097156
+19048, WatchType10, MatWatches, 100, 2097156
+19049, WatchType11, MatWatches, 100, 2097156
+19050, WatchType12, MatWatches, 100, 2097156
+19051, WatchType13, MatWatches, 100, 2097156
+19052, WatchType14, MatWatches, 100, 2097156
+19053, WatchType15, MatWatches, 100, 2097156
+# ------------------------------------------------------
+# Objects added in RC4 (109 Objects)
+19054, XmasBox1, XmasBoxes, 100, 0
+19055, XmasBox2, XmasBoxes, 100, 0
+19056, XmasBox3, XmasBoxes, 100, 0
+19057, XmasBox4, XmasBoxes, 100, 0
+19058, XmasBox5, XmasBoxes, 100, 0
+19059, XmasOrb1, XmasOrbs, 100, 0
+19060, XmasOrb2, XmasOrbs, 100, 0
+19061, XmasOrb3, XmasOrbs, 100, 0
+19062, XmasOrb4, XmasOrbs, 100, 0
+19063, XmasOrb5, XmasOrbs, 100, 0
+19064, SantaHat1, SantaHats, 100, 2097152
+19065, SantaHat2, SantaHats, 100, 2097152
+19066, SantaHat3, SantaHats, 100, 2097152
+19067, HoodyHat1, HoodyHats, 100, 2097152
+19068, HoodyHat2, HoodyHats, 100, 2097152
+19069, HoodyHat3, HoodyHats, 100, 2097152
+19070, WSDown1, WSSections, 299, 2097156
+19071, WSStraight1, WSSections, 299, 2097156
+19072, WSBend45Deg1, WSSections, 299, 2097156
+19073, WSRocky1, WSSections, 299, 2097156
+19074, Cage20mx20mx10mv2, MatTextures, 250, 4
+19075, Cage5mx5mx3mv2, MatTextures, 250, 4
+19076, XmasTree1, XmasTree1, 200, 2097156
+19077, Hair3, Hair3, 100, 2097152
+19078, TheParrot1, TheParrot, 100, 0
+19079, TheParrot2, TheParrot, 100, 0
+19080, LaserPointer2, LaserPointer2, 100, 4
+19081, LaserPointer3, LaserPointer3, 100, 4
+19082, LaserPointer4, LaserPointer4, 100, 4
+19083, LaserPointer5, LaserPointer5, 100, 4
+19084, LaserPointer6, LaserPointer6, 100, 4
+19085, EyePatch1, EyePatch1, 100, 2097152
+19086, ChainsawDildo1, sexdetail, 100, 2097152
+19087, Rope1, MatRopes, 150, 0
+19088, Rope2, MatRopes, 150, 0
+19089, Rope3, MatRopes, 150, 0
+19090, PomPomBlue, PomPoms, 100, 0
+19091, PomPomRed, PomPoms, 100, 0
+19092, PomPomGreen, PomPoms, 100, 0
+19093, HardHat2, NewHardHats, 100, 2097152
+19094, BurgerShotHat1, wfyburg, 100, 0
+19095, CowboyHat1, CowboyHats, 100, 2097152
+19096, CowboyHat3, CowboyHats, 100, 2097152
+19097, CowboyHat4, CowboyHats, 100, 2097152
+19098, CowboyHat5, CowboyHats, 100, 2097152
+19099, PoliceCap2, PoliceCaps, 100, 2097152
+19100, PoliceCap3, PoliceCaps, 100, 2097152
+19101, ArmyHelmet1, ArmyHelmets, 100, 2097152
+19102, ArmyHelmet2, ArmyHelmets, 100, 2097152
+19103, ArmyHelmet3, ArmyHelmets, 100, 2097152
+19104, ArmyHelmet4, ArmyHelmets, 100, 2097152
+19105, ArmyHelmet5, ArmyHelmets, 100, 2097152
+19106, ArmyHelmet6, ArmyHelmets, 100, 2097152
+19107, ArmyHelmet7, ArmyHelmets, 100, 2097152
+19108, ArmyHelmet8, ArmyHelmets, 100, 2097152
+19109, ArmyHelmet9, ArmyHelmets, 100, 2097152
+19110, ArmyHelmet10, ArmyHelmets, 100, 2097152
+19111, ArmyHelmet11, ArmyHelmets, 100, 2097152
+19112, ArmyHelmet12, ArmyHelmets, 100, 2097152
+19113, SillyHelmet1, SillyHelmets, 100, 2097152
+19114, SillyHelmet2, SillyHelmets, 100, 2097152
+19115, SillyHelmet3, SillyHelmets, 100, 2097152
+19116, PlainHelmet1, PlainHelmets, 100, 2097152
+19117, PlainHelmet2, PlainHelmets, 100, 2097152
+19118, PlainHelmet3, PlainHelmets, 100, 2097152
+19119, PlainHelmet4, PlainHelmets, 100, 2097152
+19120, PlainHelmet5, PlainHelmets, 100, 2097152
+19121, BollardLight1, metal, 200, 2097156
+19122, BollardLight2, metal, 200, 2097156
+19123, BollardLight3, metal, 200, 2097156
+19124, BollardLight4, metal, 200, 2097156
+19125, BollardLight5, metal, 200, 2097156
+19126, BollardLight6, metal, 200, 2097156
+19127, BollardLight7, metal, 200, 2097156
+19128, DanceFloor1, DanceFloors, 250, 0
+19129, DanceFloor2, DanceFloors, 250, 0
+19130, ArrowType1, MatArrows, 120, 0
+19131, ArrowType2, MatArrows, 120, 0
+19132, ArrowType3, MatArrows, 120, 0
+19133, ArrowType4, MatArrows, 120, 0
+19134, ArrowType5, MatArrows, 120, 0
+19135, EnExMarker1, EnExMarkers, 150, 0
+19136, Hair4, smyst2, 100, 0
+19137, CluckinBellHat1, wmybell, 100, 2097152
+19138, PoliceGlasses1, PoliceGlasses, 100, 2097152
+19139, PoliceGlasses2, PoliceGlasses, 100, 2097152
+19140, PoliceGlasses3, PoliceGlasses, 100, 2097152
+19141, SWATHelmet1, swat, 100, 2097152
+19142, SWATArmour1, swat, 100, 2097152
+19143, PinSpotLight1, PinSpotLights, 150, 0
+19144, PinSpotLight2, PinSpotLights, 150, 0
+19145, PinSpotLight3, PinSpotLights, 150, 0
+19146, PinSpotLight4, PinSpotLights, 150, 0
+19147, PinSpotLight5, PinSpotLights, 150, 0
+19148, PinSpotLight6, PinSpotLights, 150, 0
+19149, PinSpotLight7, PinSpotLights, 150, 0
+19150, PinSpotLight8, PinSpotLights, 150, 0
+19151, PinSpotLight9, PinSpotLights, 150, 0
+19152, PinSpotLight10, PinSpotLights, 150, 0
+19153, PinSpotLight11, PinSpotLights, 150, 0
+19154, PinSpotLight12, PinSpotLights, 150, 0
+19155, PinSpotLight13, PinSpotLights, 150, 0
+19156, PinSpotLight14, PinSpotLights, 150, 0
+19157, MetalLightBars1, MetalLightBars, 150, 0
+19158, MetalLightBars2, MetalLightBars, 150, 0
+19159, MirrorBall1, MirrorBall1, 150, 0
+19160, HardHat3, NewHardHats, 100, 2097152
+19161, PoliceHat1, NewPoliceHats, 100, 2097152
+19162, PoliceHat2, NewPoliceHats, 100, 2097152
+19163, GimpMask1, GimpMask1, 100, 0
+# ------------------------------------------------------
+# Objects added in RC5 (143 Objects)
+19164, GTASAMap1, gtamap, 150, 0
+19165, GTASAMap2, gtamap, 150, 0
+19166, GTASAMap3, gtamap, 100, 0
+19167, GTASAMap4, gtamap, 100, 0
+19168, GTASAMap5, gtamap, 100, 0
+19169, GTASAMap6, gtamap, 100, 0
+19170, GTASAMap7, gtamap, 100, 0
+19171, GTASAMap8, gtamap, 100, 0
+19172, SAMPPicture1, SAMPPictures, 100, 0
+19173, SAMPPicture2, SAMPPictures, 100, 0
+19174, SAMPPicture3, SAMPPictures, 100, 0
+19175, SAMPPicture4, SAMPPictures, 100, 0
+19176, LSOffice1Door1, skyscrapelan2, 150, 0
+19177, MapMarkerNew1, MapMarkers, 50, 0
+19178, MapMarkerNew2, MapMarkers, 50, 0
+19179, MapMarkerNew3, MapMarkers, 50, 0
+19180, MapMarkerNew4, MapMarkers, 50, 0
+19181, MapMarkerNew5, MapMarkers, 50, 0
+19182, MapMarkerNew6, MapMarkers, 50, 0
+19183, MapMarkerNew7, MapMarkers, 50, 0
+19184, MapMarkerNew8, MapMarkers, 50, 0
+19185, MapMarkerNew9, MapMarkers, 50, 0
+19186, MapMarkerNew10, MapMarkers, 50, 0
+19187, MapMarkerNew11, MapMarkers, 50, 0
+19188, MapMarkerNew12, MapMarkers, 50, 0
+19189, MapMarkerNew13, MapMarkers, 50, 0
+19190, MapMarkerNew14, MapMarkers, 50, 0
+19191, MapMarkerNew15, MapMarkers, 50, 0
+19192, MapMarkerNew16, MapMarkers, 50, 0
+19193, MapMarkerNew17, MapMarkers, 50, 0
+19194, MapMarkerNew18, MapMarkers, 50, 0
+19195, MapMarkerNew19, MapMarkers, 50, 0
+19196, MapMarkerNew20, MapMarkers, 50, 0
+19197, EnExMarker2, EnExMarkers, 150, 2097220
+19198, EnExMarker3, EnExMarkers, 150, 2097220
+19200, PoliceHelmet1, lapdm1, 100, 2097152
+19201, MapMarker1, MapMarkers, 50, 0
+19202, MapMarker2, MapMarkers, 50, 0
+19203, MapMarker3, MapMarkers, 50, 0
+19204, MapMarker4, MapMarkers, 50, 0
+19205, MapMarker5, MapMarkers, 50, 0
+19206, MapMarker6, MapMarkers, 50, 0
+19207, MapMarker7, MapMarkers, 50, 0
+19208, MapMarker8, MapMarkers, 50, 0
+19209, MapMarker9, MapMarkers, 50, 0
+19210, MapMarker10, MapMarkers, 50, 0
+19211, MapMarker11, MapMarkers, 50, 0
+19212, MapMarker12, MapMarkers, 50, 0
+19213, MapMarker13, MapMarkers, 50, 0
+19214, MapMarker14, MapMarkers, 50, 0
+19215, MapMarker15, MapMarkers, 50, 0
+19216, MapMarker16, MapMarkers, 50, 0
+19217, MapMarker17, MapMarkers, 50, 0
+19218, MapMarker18, MapMarkers, 50, 0
+19219, MapMarker19, MapMarkers, 50, 0
+19220, MapMarker20, MapMarkers, 50, 0
+19221, MapMarker21, MapMarkers, 50, 0
+19222, MapMarker22, MapMarkers, 50, 0
+19223, MapMarker23, MapMarkers, 50, 0
+19224, MapMarker24, MapMarkers, 50, 0
+19225, MapMarker25, MapMarkers, 50, 0
+19226, MapMarker26, MapMarkers, 50, 0
+19227, MapMarker27, MapMarkers, 50, 0
+19228, MapMarker28, MapMarkers, 50, 0
+19229, MapMarker29, MapMarkers, 50, 0
+19230, MapMarker30, MapMarkers, 50, 0
+19231, MapMarker31, MapMarkers, 50, 0
+19232, MapMarker32, MapMarkers, 50, 0
+19233, MapMarker33, MapMarkers, 50, 0
+19234, MapMarker34, MapMarkers, 50, 0
+19235, MapMarker35, MapMarkers, 50, 0
+19236, MapMarker36, MapMarkers, 50, 0
+19237, MapMarker37, MapMarkers, 50, 0
+19238, MapMarker38, MapMarkers, 50, 0
+19239, MapMarker39, MapMarkers, 50, 0
+19240, MapMarker40, MapMarkers, 50, 0
+19241, MapMarker41, MapMarkers, 50, 0
+19242, MapMarker42, MapMarkers, 50, 0
+19243, MapMarker43, MapMarkers, 50, 0
+19244, MapMarker44, MapMarkers, 50, 0
+19245, MapMarker45, MapMarkers, 50, 0
+19246, MapMarker46, MapMarkers, 50, 0
+19247, MapMarker47, MapMarkers, 50, 0
+19248, MapMarker48, MapMarkers, 50, 0
+19249, MapMarker49, MapMarkers, 50, 0
+19250, MapMarker50, MapMarkers, 50, 0
+19251, MapMarker51, MapMarkers, 50, 0
+19252, MapMarker52, MapMarkers, 50, 0
+19253, MapMarker53, MapMarkers, 50, 0
+19254, MapMarker54, MapMarkers, 50, 0
+19255, MapMarker55, MapMarkers, 50, 0
+19256, MapMarker56, MapMarkers, 50, 0
+19257, MapMarker57, MapMarkers, 50, 0
+19258, MapMarker58, MapMarkers, 50, 0
+19259, MapMarker59, MapMarkers, 50, 0
+19260, MapMarker60, MapMarkers, 50, 0
+19261, MapMarker61, MapMarkers, 50, 0
+19262, MapMarker62, MapMarkers, 50, 0
+19263, MapMarker63, MapMarkers, 50, 0
+19264, MapMarker1a, MapMarkers, 50, 0
+19265, MapMarker1b, MapMarkers, 50, 0
+19266, MapMarker31a, MapMarkers, 50, 0
+19267, MapMarker31b, MapMarkers, 50, 0
+19268, MapMarker31c, MapMarkers, 50, 0
+19269, MapMarker31d, MapMarkers, 50, 0
+19270, MapMarkerFire1, MapMarkers, 50, 0
+19271, MapMarkerLight1, MapMarkers, 50, 0
+19272, DMCage3, DMCages, 250, 2097156
+19273, KeypadNonDynamic, keypad, 100, 2097152
+19274, Hair5, wmoice, 100, 2097152
+#19275, SAMPLogo2, SAMPLogos, 100, 0
+#19276, SAMPLogo3, SAMPLogos, 100, 0
+19277, LiftType1, MatLifts, 200, 4
+19278, LiftPlatform1, SkyDivePlatforms, 299, 2097156
+19279, LCSmallLight1, MatLights, 120, 0
+19280, CarRoofLight1, MatLights, 120, 0
+19281, PointLight1, MatLights, 120, 4
+19282, PointLight2, MatLights, 120, 4
+19283, PointLight3, MatLights, 120, 4
+19284, PointLight4, MatLights, 120, 4
+19285, PointLight5, MatLights, 120, 4
+19286, PointLight6, MatLights, 120, 4
+19287, PointLight7, MatLights, 120, 4
+19288, PointLight8, MatLights, 120, 4
+19289, PointLight9, MatLights, 120, 4
+19290, PointLight10, MatLights, 120, 4
+19291, PointLight11, MatLights, 120, 4
+19292, PointLight12, MatLights, 120, 4
+19293, PointLight13, MatLights, 120, 4
+19294, PointLight14, MatLights, 120, 4
+19295, PointLight15, MatLights, 120, 4
+19296, PointLight16, MatLights, 120, 4
+19297, PointLight17, MatLights, 120, 4
+19298, PointLight18, MatLights, 120, 4
+19299, PointLightMoon1, MatLights, 170, 4
+19300, blankmodel, MatTextures, 100, 0
+# ------------------------------------------------------
+# Objects added by cessil (Late 2011)
+# -----------------------------------
+# Replacement sfpd interior without cell doors
+19301, mp_sfpd_nocell, mp_policeSF, 100, 0
+# Cell door components that can be used in all PDs
+19302, pd_jail_door01, pd_jail_door01, 299, 2097284
+19303, pd_jail_door02, pd_jail_door02, 299, 2097284
+19304, pd_jail_door_top01, pd_jail_door_top01, 299, 2097284
+# ------------------------------------------------------
+# The three objects below were missing in 0.3z and 
+# have been added in SA:MP 0.3.7 by Matite
+# ----------------------------------------
+# This security keypad is the same as ID 2886 except it has
+# a back on it so it can be used as a pickup.
+# It also has no collision.
+19305, sec_keypad2, keypad, 100, 0
+# This flag is the same as object ID 2993 except it is red.
+19306, kmb_goflag2, goflagx2, 100, 0
+# This flag is the same as object ID 2993 except it is blue.
+19307, kmb_goflag3, goflagx2, 100, 0
+# ------------------------------------------------------
+# Taxi signs which can be attached to vehicles
+19308, taxi01, taxi01, 150, 0
+19309, taxi02, taxi02, 150, 0
+19310, taxi03, taxi03, 150, 0
+19311, taxi04, taxi04, 150, 0
+# Area 51 fencing as seperate objects
+19312, a51fencing, a51fencing, 200, 2097156
+19313, a51fensin, a51fencing, 200, 2097156
+# Car bullhorns
+19314, bullhorns01, bullhorns01, 100, 0
+# Deer
+19315, deer01, deer01, 100, 0
+# Ferris wheel cage with no roof
+19316, FerrisCageBit01, FerrisWheel, 200, 0
+# Guitars
+19317, bassguitar01, bassguitar01, 100, 0
+19318, flyingv01, flyingv01, 100, 0
+19319, warlock01, warlock01, 100, 0
+# Pumpkin
+19320, pumpkin01, pumpkin01, 100, 0
+19321, cuntainer, continX, 100, 2097152
+# LS Mall Replacement
+19322, mallb_laW02, mall_law, 200, 0
+19323, lsmall_shop01, lsmall_shops, 200, 0
+# ------------------------------------------------------
+# The object below was missing in 0.3z and 
+# has been added in SA:MP 0.3.7 by Matite
+# ---------------------------------------
+# This ATM is the same as object ID 2942 except it is
+# not dynamic and the texture on the back has been
+# fixed.
+19324, kmb_atm1_2, kmb_atmx, 100, 0
+# ------------------------------------------------------
+19325, lsmall_window01, lsmall_shops, 200, 2097220
+19326, 7_11_sign01, 7_11_posters, 100, 0
+19327, 7_11_sign02, 7_11_posters, 100, 0
+19328, 7_11_sign03, 7_11_posters, 100, 0
+19329, 7_11_sign04, 7_11_posters, 100, 0
+# Fireman hats
+19330, fire_hat01, firehats, 100, 0
+19331, fire_hat02, firehats, 100, 0
+# Hot air balloons
+19332, Hot_Air_Balloon01, balloon_texts, 200, 2097152
+19333, Hot_Air_Balloon02, balloon_texts, 200, 2097152
+19334, Hot_Air_Balloon03, balloon_texts, 200, 2097152
+19335, Hot_Air_Balloon04, balloon_texts, 200, 2097152
+19336, Hot_Air_Balloon05, balloon_texts, 200, 2097152
+19337, Hot_Air_Balloon06, balloon_texts, 200, 2097152
+19338, Hot_Air_Balloon07, balloon_texts, 200, 2097152
+# Coffin
+19339, coffin01, coffin01, 200, 0
+# concrete slab for SF
+19340, cslab01, carshow_sfse, 200, 0
+# Easter eggs
+19341, easter_egg01, egg_texts, 100, 0
+19342, easter_egg02, egg_texts, 100, 0
+19343, easter_egg03, egg_texts, 100, 0
+19344, easter_egg04, egg_texts, 100, 0
+19345, easter_egg05, egg_texts, 100, 0
+# Hotdog
+19346, hotdog01, hotdog01, 100, 0
+# Made by cessil 03-2012
+19347, badge01, police_things, 100, 0
+19348, cane01, classy, 100, 0
+19349, monocle01, classy, 100, 2097156
+19350, moustache01, classy, 100, 0
+19351, moustache02, classy, 100, 0
+19352, tophat01, classy, 100, 0
+# Textured wall sections
+19353, wall001, all_walls, 100, 0
+19354, wall002, all_walls, 100, 0
+19355, wall003, all_walls, 100, 0
+19356, wall004, all_walls, 100, 0
+19357, wall005, all_walls, 100, 0
+19358, wall006, all_walls, 100, 0
+19359, wall007, all_walls, 100, 0
+19360, wall008, all_walls, 100, 0
+19361, wall009, all_walls, 100, 0
+19362, wall010, all_walls, 100, 0
+19363, wall011, all_walls, 100, 0
+19364, wall012, all_walls, 100, 0
+19365, wall013, all_walls, 100, 0
+19366, wall014, all_walls, 100, 0
+19367, wall015, all_walls, 100, 0
+19368, wall016, all_walls, 100, 0
+19369, wall017, all_walls, 100, 0
+19370, wall018, all_walls, 100, 0
+19371, wall019, all_walls, 100, 0
+19372, wall020, all_walls, 100, 0
+19373, wall021, all_walls, 100, 0
+19374, wall022, all_walls, 100, 0
+19375, wall023, all_walls, 100, 0
+19376, wall024, all_walls, 100, 0
+19377, wall025, all_walls, 100, 0
+19378, wall026, all_walls, 100, 0
+19379, wall027, all_walls, 100, 0
+19380, wall028, all_walls, 100, 0
+19381, wall029, all_walls, 100, 0
+19382, wall030, all_walls, 100, 0
+19383, wall031, all_walls, 100, 0
+19384, wall032, all_walls, 100, 0
+19385, wall033, all_walls, 100, 0
+19386, wall034, all_walls, 100, 0
+19387, wall035, all_walls, 100, 0
+19388, wall036, all_walls, 100, 0
+19389, wall037, all_walls, 100, 0
+19390, wall038, all_walls, 100, 0
+19391, wall039, all_walls, 100, 0
+19392, wall040, all_walls, 100, 0
+19393, wall041, all_walls, 100, 0
+19394, wall042, all_walls, 100, 0
+19395, wall043, all_walls, 100, 0
+19396, wall044, all_walls, 100, 0
+19397, wall045, all_walls, 100, 0
+19398, wall046, all_walls, 100, 0
+19399, wall047, all_walls, 100, 0
+19400, wall048, all_walls, 100, 0
+19401, wall049, all_walls, 100, 0
+19402, wall050, all_walls, 100, 0
+19403, wall051, all_walls, 100, 0
+19404, wall052, all_walls, 100, 0
+19405, wall053, all_walls, 100, 0
+19406, wall054, all_walls, 100, 0
+19407, wall055, all_walls, 100, 0
+19408, wall056, all_walls, 100, 0
+19409, wall057, all_walls, 100, 0
+19410, wall058, all_walls, 100, 0
+19411, wall059, all_walls, 100, 0
+19412, wall060, all_walls, 100, 0
+19413, wall061, all_walls, 100, 0
+19414, wall062, all_walls, 100, 0
+19415, wall063, all_walls, 100, 0
+19416, wall064, all_walls, 100, 0
+19417, wall065, all_walls, 100, 0
+19418, handcuffs01, police_things, 100, 0
+19419, police_lights01, police_things, 100, 0
+19420, police_lights02, police_things, 100, 0
+19421, headphones01, headphones, 100, 0
+19422, headphones02, headphones, 100, 0
+19423, headphones03, headphones, 100, 0
+19424, headphones04, headphones, 100, 0
+19425, speed_bump01, speed_bumps, 100, 0
+19426, wall066, all_walls, 100, 0
+19427, wall067, all_walls, 100, 0
+19428, wall068, all_walls, 100, 0
+19429, wall069, all_walls, 100, 0
+19430, wall070, all_walls, 100, 0
+19431, wall071, all_walls, 100, 0
+19432, wall072, all_walls, 100, 0
+19433, wall073, all_walls, 100, 0
+19434, wall074, all_walls, 100, 0
+19435, wall075, all_walls, 100, 0
+19436, wall076, all_walls, 100, 0
+19437, wall077, all_walls, 100, 0
+19438, wall078, all_walls, 100, 0
+19439, wall079, all_walls, 100, 0
+19440, wall080, all_walls, 100, 0
+19441, wall081, all_walls, 100, 0
+19442, wall082, all_walls, 100, 0
+19443, wall083, all_walls, 100, 0
+19444, wall084, all_walls, 100, 0
+19445, wall085, all_walls, 100, 0
+19446, wall086, all_walls, 100, 0
+19447, wall087, all_walls, 100, 0
+19448, wall088, all_walls, 100, 0
+19449, wall089, all_walls, 100, 0
+19450, wall090, all_walls, 100, 0
+19451, wall091, all_walls, 100, 0
+19452, wall092, all_walls, 100, 0
+19453, wall093, all_walls, 100, 0
+19454, wall094, all_walls, 100, 0
+19455, wall095, all_walls, 100, 0
+19456, wall096, all_walls, 100, 0
+19457, wall097, all_walls, 100, 0
+19458, wall098, all_walls, 100, 0
+19459, wall099, all_walls, 100, 0
+19460, wall100, all_walls, 100, 0
+19461, wall101, all_walls, 100, 0
+19462, wall102, all_walls, 100, 0
+19463, wall103, all_walls, 100, 0
+19464, wall104, all_walls, 100, 0
+19465, wall105, all_walls, 100, 0
+19466, window001, lsmall_shops, 100, 2097220
+19467, vehicle_barrier01, speed_bumps, 100, 0
+19468, bucket01, bucket01, 100, 2097152
+19469, scarf01, classy, 100, 2097152
+19470, forsale01, forsale01, 100, 2097152
+19471, forsale02, forsale01, 100, 2097152
+19472, gasmask01, gasmask01, 100, 0
+19473, grassplant01, grasshouse, 100, 2097156
+19474, pokertable01, kbroul1, 100, 0
+#-----------------------------------------------------------------
+# Blank planes for text signs
+19475, Plane001, signsurf, 299, 2097284
+19476, Plane002, signsurf, 299, 2097284
+19477, Plane003, signsurf, 299, 2097284
+19478, Plane004, signsurf, 299, 2097284
+19479, Plane005, signsurf, 299, 2097284
+19480, Plane006, signsurf, 299, 2097284
+19481, Plane007, signsurf, 299, 2097284
+19482, Plane008, signsurf, 299, 2097284
+19483, Plane009, signsurf, 299, 2097284
+#-----------------------------------------------------------------
+19484, landbit01_01, bakerybit2_sfse, 200, 0
+19485, Groundbit84_SFS_01, skyscrap_sfse, 200, 0
+#-----------------------------------------------------------------
+# SF Harry Plums Building
+# -----------------------
+# Updated the object below in 0.3.7 (side doors now open and
+# interior vertex colour fixes).
+19486, SFHarryPlums1, burgalrystore_sfse, 299, 4
+#-----------------------------------------------------------------
+# Non-coloured hats #1
+19487, tophat02, noncolored, 200, 0
+19488, HatBowler6, noncolored, 200, 0
+#-----------------------------------------------------------------
+19489, sfhouse1, boxhses_sfsx, 200, 2097280
+19490, sfhouse1int, all_walls, 200, 128
+19491, sfhouse2, boxhses_sfsx, 200, 128
+19492, sfhouse2int, all_walls, 200, 128
+19493, sfhouse3, boxhses_sfsx, 200, 128
+19494, sfhouse3int, all_walls, 200, 128
+19495, sfhouse4, boxhses_sfsx, 200, 2097280
+19496, sfhouse4int, all_walls, 200, 128
+19497, lvhouse1, vegashse2, 200, 2097280
+19498, lvhouse1int, all_walls, 200, 128
+19499, lvhouse2, vegashse3, 200, 2097280
+19500, lvhouse2int, all_walls, 200, 128
+19501, lvhouse3, vegashse6, 200, 2097280
+19502, lvhouse3int, all_walls, 200, 128
+19503, lvhouse4, vegashse4, 200, 128
+19504, lvhouse4int, all_walls, 200, 128
+19505, lshouse1, ganghouse1_lax, 200, 128
+19506, lshouse1int, all_walls, 200, 128
+19507, lshouse2, ganghouse1_lax, 200, 128
+19508, lshouse2int, all_walls, 200, 128
+19509, lshouse3, comedhos1_la, 200, 128
+19510, lshouse3int, all_walls, 200, 128
+19511, lshouse4, glenphouse_lax, 200, 128
+19512, lshouse4int, all_walls, 200, 128
+19513, whitephone, whitephone, 100, 0
+19514, SWATHgrey, swatgrey, 100, 2097152
+19515, SWATAgrey, swatgrey, 100, 2097152
+#-----------------------------------------------------------------
+# Non-coloured hair #1
+19516, Hair2_nc, noncolored, 200, 0
+19517, Hair3_nc, noncolored, 200, 0
+19518, Hair5_nc, noncolored, 200, 0
+19519, Hair1_nc, noncolored, 200, 0
+19520, pilotHat01, pilotPoliceHat, 200, 0
+19521, policeHat01, pilotPoliceHat, 200, 0
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+# Objects Added by Matite in SA:MP 0.3.7 (late 2014 to early 2015)
+# ----------------------------------------------------------------
+# Property Icons
+# --------------
+19522, property_red, SAMPIcons, 200, 128
+19523, property_orange, SAMPIcons, 200, 128
+19524, property_yellow, SAMPIcons, 200, 128
+#-----------------------------------------------------------------
+# Wedding Cake
+# ------------
+19525, WeddingCake1, WeddingCake1, 100, 0
+#-----------------------------------------------------------------
+# ATM Fixed (previously it was black during the night)
+# ----------------------------------------------------
+19526, ATMFixed, CJ_CASINO_prop, 100, 0
+#-----------------------------------------------------------------
+# Halloween Stuff
+# ---------------
+19527, Cauldron1, Cauldron1, 100, 0
+19528, WitchesHat1, WitchesHat1, 100, 0
+#-----------------------------------------------------------------
+# Modular Island (grass, sand, concrete and roads)
+# ------------------------------------------------
+19529, Plane125x125Grass1, beach_sfs, 599, 2097152
+19530, Plane125x125Sand1, beach_sfs, 599, 2097152
+19531, Plane125x125Conc1, cs_ebridge, 599, 2097152
+19532, 15x125Road1, cs_ebridge, 599, 2097152
+19533, 15x62_5Road1, cs_ebridge, 599, 2097152
+19534, 15x15RoadInters1, MatRoadInters1, 599, 2097152
+19535, 15x15RoadInters2, MatRoadInters1, 599, 2097152
+19536, Plane62_5x125Grass1, beach_sfs, 599, 2097152
+19537, Plane62_5x125Sand1, beach_sfs, 599, 2097152
+19538, Plane62_5x125Conc1, cs_ebridge, 599, 2097152
+19539, Edge62_5x62_5Grass1, beach_sfs, 599, 2097152
+19540, Edge62_5x62_5Grass2, beach_sfs, 599, 2097152
+19541, Edge62_5x15Grass1, beach_sfs, 599, 2097152
+19542, Edge62_5x125Grass1, beach_sfs, 599, 2097152
+19543, Plane62_5x15Grass1, beach_sfs, 599, 2097152
+19544, Plane62_5x15Sand1, beach_sfs, 599, 2097152
+19545, Plane62_5x15Conc1, cs_ebridge, 599, 2097152
+19546, Edge62_5x62_5Grass3, beach_sfs, 599, 2097152
+19547, Hill125x125Grass1, beach_sfs, 599, 2097152
+19548, Hill125x125Sand1, beach_sfs, 599, 2097152
+19549, Edge62_5x32_5Grass1, beach_sfs, 599, 2097152
+# The three planes below are the same as the other
+# 125x125 planes above except they have some random
+# lighter areas visible during the night.
+19550, Plane125x125Grass2, beach_sfs, 599, 2097152
+19551, Plane125x125Sand2, beach_sfs, 599, 2097152
+19552, Plane125x125Conc2, cs_ebridge, 599, 2097152
+#-----------------------------------------------------------------
+# Extracted from Skins (hats, mask, boxing gloves and backpack)
+# -------------------------------------------------------------
+19553, StrawHat1, CWMOFR, 100, 2097152
+19554, Beanie1, ogloc, 100, 2097152
+19555, BoxingGloveL, vbmybox, 100, 2097152
+19556, BoxingGloveR, vbmybox, 100, 2097152
+19557, SexyMask1, wfysex, 100, 2097152
+19558, PizzaHat1, wmypizz, 100, 2097152
+19559, HikerBackpack1, wmybp, 100, 2097152
+#-----------------------------------------------------------------
+# Extracted from Supermarket Items
+# --------------------------------
+19560, MeatTray1, MeatTray1, 100, 0
+19561, CerealBox1, cj_ss_1, 100, 0
+19562, CerealBox2, cj_ss_1, 100, 0
+19563, JuiceBox1, cj_ss_1, 100, 0
+19564, JuiceBox2, cj_ss_1, 100, 0
+19565, IceCreamBarsBox1, cj_ss_4, 100, 0
+19566, FishFingersBox1, cj_ss_4, 100, 0
+19567, IcecreamContainer1, cj_ss_4, 100, 0
+19568, IcecreamContainer2, cj_ss_4, 100, 0
+19569, MilkCarton1, cj_ss_2, 100, 0
+19570, MilkBottle1, cj_ss_2, 100, 0
+19571, PizzaBox1, cj_ss_2, 100, 0
+19572, PisshBox1, cj_ss_1, 100, 0
+19573, BriquettesBag1, cj_ss_1, 100, 0
+#-----------------------------------------------------------------
+# Fruit
+# -----
+19574, Orange1, SAMPFruits, 100, 0
+19575, Apple1, SAMPFruits, 100, 0
+19576, Apple2, SAMPFruits, 100, 0
+19577, Tomato1, SAMPFruits, 100, 0
+19578, Banana1, SAMPFruits, 100, 0
+#-----------------------------------------------------------------
+# Loaf of Bread
+# -------------
+19579, BreadLoaf1, BreadLoaf1, 100, 0
+#-----------------------------------------------------------------
+# Extracted Pepperoni Pizza
+# -------------------------
+19580, Pizza1, cj_ff_acc1, 100, 0
+#-----------------------------------------------------------------
+# Extracted from Marco's Bistro Kitchen
+# -------------------------------------
+19581, MarcosFryingPan1, lee_kitch, 100, 0
+19582, MarcosSteak1, lee_kitch, 100, 0
+19583, MarcosKnife1, lee_kitch, 100, 0
+19584, MarcosSaucepan1, lee_kitch, 100, 0
+19585, MarcosPan1, lee_kitch, 100, 0
+19586, MarcosSpatula1, lee_kitch, 100, 4
+#-----------------------------------------------------------------
+# Extracted from a Stack of Plastic Trays and Edited
+# --------------------------------------------------
+19587, PlasticTray1, labins01_la, 100, 2097156
+#-----------------------------------------------------------------
+# Wooden Foot Bridge
+# ------------------
+19588, FootBridge1, FootBridge1, 299, 0
+#-----------------------------------------------------------------
+# Extracted and Edited Rubbish Skip
+# ---------------------------------
+19589, RubbishSkipEmpty1, break_s_bins, 100, 0
+#-----------------------------------------------------------------
+# Extracted from Woozie's Apartment
+# ---------------------------------
+19590, WooziesSword1, ab_wooziec, 100, 0
+19591, WooziesHandFan1, ab_wooziec, 100, 2097152
+#-----------------------------------------------------------------
+# Extracted from a Stack of Baskets and Edited
+# --------------------------------------------
+19592, ShopBasket1, temp_shop, 100, 2097152
+#-----------------------------------------------------------------
+# SF ZomboTech Building and Lab
+# -----------------------------
+# These objects can be used to replace the ZomboTech building in SF.
+# The filterscript called sf_zombotech can be used to remove the
+# existing GTASA map objects, replace the building, add the new lab
+# building below the ground and add an elevator.
+19593, ZomboTechBuilding1, bigwhitesfe, 299, 0
+19594, ZomboTechLab1, ZomboTechLab1, 299, 0
+#-----------------------------------------------------------------
+# LS Apartments
+# -------------
+# This object can be used to replace a block of apartments in LS.
+# The filterscript called ls_apartments1 can be used to remove the
+# existing GTASA map objects, replace the building and add an
+# elevator.
+# There is also a matching car park object (ID:19798).
+19595, LSAppartments1, LSAppartments1, 299, 2097156
+#-----------------------------------------------------------------
+# LS BeachSide
+# ------------
+# These objects can be used to replace a block of apartments on the
+# beach in LS. The filterscript called ls_beachside can be used to
+# add an elevator.
+# note: 19596 has been moved to model ID 6391 to replace the existing building
+# 19596, LSBeachSide, LSBeachSide, 299, 2097156
+19597, LSBeachSideInsides, LSBeachSide, 125, 0
+#-----------------------------------------------------------------
+# SF Building 1
+# -------------
+# These objects can be used to replace a building near the hospital
+# in SF. The filterscript called sf_building1 can be used to remove
+# the existing GTASA map objects and replace the building.
+19598, SFBuilding1Outside, SFBuilding1, 299, 2097156
+19599, SFBuilding1Inside, SFBuilding1, 125, 0
+19600, SFBuilding1Land, SFBuilding1, 299, 0
+#-----------------------------------------------------------------
+# Snow Plow
+# ---------
+# Attach to the front of the Barracks vehicle for best results.
+19601, SnowPlow1, SnowPlow1, 150, 0
+#-----------------------------------------------------------------
+# Landmine Edited
+# ---------------
+# Removed the red light at night and dynamic property.
+19602, Landmine1, mine, 150, 0
+#-----------------------------------------------------------------
+# Water Plane
+# -----------
+# A 5m by 5m plane with semi-transparent water texture.
+19603, WaterPlane1, ballyswater, 150, 2097156
+# A 5m x 10m plane with semi transparent and animated water texture.
+19604, WaterPlane2, ballyswater, 150, 2097156
+#-----------------------------------------------------------------
+# Different Coloured EnEx Markers
+# -------------------------------
+# Red, Green and Blue.
+19605, EnExMarker4-2, EnExMarkers, 150, 68
+19606, EnExMarker4-3, EnExMarkers, 150, 68
+19607, EnExMarker4-4, EnExMarkers, 150, 68
+#-----------------------------------------------------------------
+# Stage and Music Equipment
+# -------------------------
+19608, WoodenStage1, WoodenStage1, 299, 0
+19609, DrumKit1, dr_gsstudio, 100, 2097156
+19610, Microphone1, Microphone1, 100, 0
+19611, MicrophoneStand1, Microphone1, 100, 2097156
+19612, GuitarAmp1, dr_gsstudio, 100, 0
+19613, GuitarAmp2, dr_gsstudio, 100, 0
+19614, GuitarAmp3, dr_gsstudio, 100, 0
+19615, GuitarAmp4, dr_gsstudio, 100, 0
+19616, GuitarAmp5, dr_gsstudio, 100, 0
+19617, GoldRecord1, dr_gsstudio, 100, 0
+#-----------------------------------------------------------------
+# Safe with Seperate Door
+# -----------------------
+# You can use the MoveObject() function to make the safe door
+# open and close. The safe_animated filterscript shows you an
+# example of how to do it.
+19618, Safe1, kbmiscfrn2, 100, 0
+19619, SafeDoor1, kbmiscfrn2, 100, 0
+#-----------------------------------------------------------------
+# New Police Light Bar Model
+# --------------------------
+# Uses UV animation so it works during the day too.
+19620, LightBar1, LightBar1, 200, 0
+#-----------------------------------------------------------------
+# Extracted from Cutscene IMG and Edited
+# --------------------------------------
+19621, OilCan1, OilCan1, 100, 0
+19622, Broom1, Broom1, 100, 0
+19623, Camera1, Camera1, 100, 0
+19624, Case1, Case1, 100, 0
+19625, Ciggy1, Ciggy1, 50, 0
+19626, Spade1, Spade1, 100, 0
+19627, Wrench1, Wrench1, 100, 0
+#-----------------------------------------------------------------
+# Modular Road Banked Corners
+# ---------------------------
+19628, MRoadBend90Banked1, cs_ebridge, 250, 5
+19629, MRoadBend90Banked2, cs_ebridge, 250, 5
+#-----------------------------------------------------------------
+# 3D Fish (Bream)
+# ---------------
+19630, Fish1, Fish1SAMP, 100, 4
+#-----------------------------------------------------------------
+# Sledge Hammer
+# -------------
+19631, SledgeHammer1, SledgeHammer1, 100, 0
+#-----------------------------------------------------------------
+# Burning Logs
+# ------------
+19632, FireWood1, FireWood1, 100, 0
+#-----------------------------------------------------------------
+# 360 Degree Ramps
+# ----------------
+19633, Ramp360Degree1, landjump, 200, 0
+19634, Ramp360Degree2, landjump, 299, 0
+19635, Ramp360Degree3, landjump, 299, 0
+#-----------------------------------------------------------------
+# Fruit Crates
+# ------------
+# For transporting on a truck or adding to the shop shelf below.
+19636, RedApplesCrate1, FruitCrates1, 100, 2097156
+19637, GreenApplesCrate1, FruitCrates1, 100, 2097156
+19638, OrangesCrate1, FruitCrates1, 100, 2097156
+19639, EmptyCrate1, FruitCrates1, 100, 0
+#-----------------------------------------------------------------
+# Empty Shop Shelf
+# ----------------
+# Stock it with your preferred items. Three fruit crates will fit
+# side by side on the bottom shelf.
+19640, EmptyShopShelf1, new_cabinets3, 100, 2097156
+#-----------------------------------------------------------------
+# Wooden Fence Section
+# --------------------
+19641, FenceSection1, FenceSection1, 250, 4
+#-----------------------------------------------------------------
+# Half Tube Objects
+# -----------------
+# The MatTubes TXD file contains different coloured textures
+# (RedDirt1, GreenDirt1, BlueDirt1, YellowDirt1 and PurpleDirt1)
+# that can be used to re-colour the tubes below by using the
+# SetObjectMaterial or SetPlayerObjectMaterial functions.
+# Re-colouring the tubes this way preserves the shading (the
+# vertex colours and vertex illumination).
+#
+# The tubes are available in three sizes... normal (100%), 
+# medium (50%) and small (25%).
+# ------------------------------------------
+# The tubes in this section are normal size:
+19642, TubeSeg10m1, MatTubes, 299, 0
+19643, TubeSeg10m2a, MatTubes, 299, 0
+19644, TubeSeg10m2b, MatTubes, 299, 0
+19645, TubeSeg25m1, MatTubes, 299, 0
+19646, TubeHalf10m1, MatTubes, 299, 0
+19647, TubeHalf10mJoin1a, MatTubes, 299, 0
+19648, TubeHalf10mJoin1b, MatTubes, 299, 0
+19649, TubeHalf50m1, MatTubes, 299, 0
+19650, TubeFlat25x25m1, MatTubes, 299, 0
+19651, TubeHalfSpiral1a, MatTubes, 299, 0
+19652, TubeHalfSpiral1b, MatTubes, 299, 0
+19653, TubeHalfSpiral2a, MatTubes, 299, 0
+19654, TubeHalfSpiral2b, MatTubes, 299, 0
+19655, TubeHalfSpiral3a, MatTubes, 299, 0
+19656, TubeHalfSpiral3b, MatTubes, 299, 0
+19657, TubeHalfSpiral4a, MatTubes, 299, 0
+19658, TubeHalfSpiral4b, MatTubes, 299, 0
+19659, TubeHalf180Bend1a, MatTubes, 299, 0
+19660, TubeHalf180Bend1b, MatTubes, 299, 0
+19661, TubeHalf90Bend1a, MatTubes, 299, 0
+19662, TubeHalf90Bend1b, MatTubes, 299, 0
+19663, TubeHalf50mDip1, MatTubes, 299, 0
+19664, TubeHalf50mBump1, MatTubes, 299, 0
+19665, TubeHalfLoop1a, MatTubes, 299, 0
+19666, TubeHalfLoop1b, MatTubes, 299, 0
+19667, TubeHalfLoop2a, MatTubes, 299, 0
+19668, TubeHalfLoop2b, MatTubes, 299, 0
+19669, TubeHalfBowl1, MatTubes, 299, 0
+19670, TubeSupport1, dynsigns, 299, 0
+19671, TubeSupport2, dynsigns, 299, 0
+19672, TubeHalfLight1, dynsigns, 299, 0
+19673, TubeHalf5Bend1a, MatTubes, 299, 0
+19674, TubeHalf5Bend1b, MatTubes, 299, 0
+19675, TubeHalf5Bend2a, MatTubes, 299, 0
+19676, TubeHalf5Bend2b, MatTubes, 299, 0
+19677, TubeHalfTwist1a, MatTubes, 299, 0
+19678, TubeHalfTwist1b, MatTubes, 299, 0
+19679, TubeHalfTwist2a, MatTubes, 299, 0
+19680, TubeHalfTwist2b, MatTubes, 299, 0
+19681, TubeHalf45Bend1a, MatTubes, 299, 0
+19682, TubeHalf45Bend1b, MatTubes, 299, 0
+19683, TubeHalf15Bend1a, MatTubes, 299, 0
+19684, TubeHalf15Bend1b, MatTubes, 299, 0
+19685, TubeHalf15Bend2a, MatTubes, 299, 0
+19686, TubeHalf15Bend2b, MatTubes, 299, 0
+19687, TubeHalf25m1, MatTubes, 299, 0
+19688, TubeHalf45Bend3, MatTubes, 299, 0
+19689, TubeHalf45Bend4, MatTubes, 299, 0
+# ------------------------------------------
+# The tubes in this section join normal
+# tubes (above) to medium tubes (below):
+19690, TubeHalfNtoMJoin1a, MatTubes, 299, 0
+19691, TubeHalfNtoMJoin1b, MatTubes, 299, 0
+# ------------------------------------------
+# The tubes in this section are medium size:
+19692, MTubeSeg5m1, MatTubes, 299, 0
+19693, MTubeSeg5m2a, MatTubes, 299, 0
+19694, MTubeSeg5m2b, MatTubes, 299, 0
+19695, MTubeSeg12_5m1, MatTubes, 299, 0
+19696, MTubeHalf10m1, MatTubes, 299, 0
+19697, MTubeHalf5mJoin1a, MatTubes, 299, 0
+19698, MTubeHalf5mJoin1b, MatTubes, 299, 0
+19699, MTubeHalf25m1, MatTubes, 299, 0
+19700, MTubeFlt12_5x12_5m1, MatTubes, 299, 0
+19701, MTubeHalfSpiral1a, MatTubes, 299, 0
+19702, MTubeHalfSpiral1b, MatTubes, 299, 0
+19703, MTubeHalfSpiral2a, MatTubes, 299, 0
+19704, MTubeHalfSpiral2b, MatTubes, 299, 0
+19705, MTubeHalfSpiral3a, MatTubes, 299, 0
+19706, MTubeHalfSpiral3b, MatTubes, 299, 0
+19707, MTubeHalfSpiral4a, MatTubes, 299, 0
+19708, MTubeHalfSpiral4b, MatTubes, 299, 0
+19709, MTubeHalf180Bend1a, MatTubes, 299, 0
+19710, MTubeHalf180Bend1b, MatTubes, 299, 0
+19711, MTubeHalf90Bend1a, MatTubes, 299, 0
+19712, MTubeHalf90Bend1b, MatTubes, 299, 0
+19713, MTubeHalf25mDip1, MatTubes, 299, 0
+19714, MTubeHalf25mBump1, MatTubes, 299, 0
+19715, MTubeHalfBowl1, MatTubes, 299, 0
+19716, MTubeSupport1, dynsigns, 299, 0
+19717, MTubeSupport2, dynsigns, 299, 0
+19718, MTubeHalfLight1, dynsigns, 299, 0
+19719, MTubeHalf5Bend1a, MatTubes, 299, 0
+19720, MTubeHalf5Bend1b, MatTubes, 299, 0
+19721, MTubeHalf5Bend2a, MatTubes, 299, 0
+19722, MTubeHalf5Bend2b, MatTubes, 299, 0
+19723, MTubeHalf45Bend1a, MatTubes, 299, 0
+19724, MTubeHalf45Bend1b, MatTubes, 299, 0
+19725, MTubeHalf15Bend1a, MatTubes, 299, 0
+19726, MTubeHalf15Bend1b, MatTubes, 299, 0
+19727, MTubeHalf15Bend2a, MatTubes, 299, 0
+19728, MTubeHalf15Bend2b, MatTubes, 299, 0
+19729, MTubeHalf45Bend3, MatTubes, 299, 0
+19730, MTubeHalf45Bend4, MatTubes, 299, 0
+# ------------------------------------------
+# The tubes in this section join medium
+# tubes (above) to small tubes (below):
+19731, TubeHalfMtoSJoin1a, MatTubes, 299, 0
+19732, TubeHalfMtoSJoin1B, MatTubes, 299, 0
+# ------------------------------------------
+# The tubes in this section are small size:
+19733, STubeSeg5m1, MatTubes, 299, 0
+19734, STubeSeg5m2a, MatTubes, 299, 0
+19735, STubeSeg5m2b, MatTubes, 299, 0
+19736, STubeSeg6_25m1, MatTubes, 299, 0
+19737, STubeHalf10m1, MatTubes, 299, 0
+19738, STubeHalf5mJoin1a, MatTubes, 299, 0
+19739, STubeHalf5mJoin1b, MatTubes, 299, 0
+19740, STubeHalf12_5m1, MatTubes, 299, 0
+19741, STubeFlat6_25m1, MatTubes, 299, 0
+19742, STubeHalfSpiral1a, MatTubes, 299, 0
+19743, STubeHalfSpiral1b, MatTubes, 299, 0
+19744, STubeHalfSpiral2a, MatTubes, 299, 0
+19745, STubeHalfSpiral2b, MatTubes, 299, 0
+19746, STubeHalfSpiral3a, MatTubes, 299, 0
+19747, STubeHalfSpiral3b, MatTubes, 299, 0
+19748, STubeHalfSpiral4a, MatTubes, 299, 0
+19749, STubeHalfSpiral4b, MatTubes, 299, 0
+19750, STubeHalf180Bend1a, MatTubes, 299, 0
+19751, STubeHalf180Bend1b, MatTubes, 299, 0
+19752, STubeHalf90Bend1a, MatTubes, 299, 0
+19753, STubeHalf90Bend1b, MatTubes, 299, 0
+19754, STubeHalf12_5mDip1, MatTubes, 299, 0
+19755, STubeHalf12_5mBump1, MatTubes, 299, 0
+19756, STubeHalfBowl1, MatTubes, 299, 0
+19757, STubeSupport1, dynsigns, 299, 0
+19758, STubeSupport2, dynsigns, 299, 0
+19759, STubeHalfLight1, dynsigns, 299, 0
+19760, STubeHalf5Bend1a, MatTubes, 299, 0
+19761, STubeHalf5Bend1b, MatTubes, 299, 0
+19762, STubeHalf5Bend2a, MatTubes, 299, 0
+19763, STubeHalf5Bend2b, MatTubes, 299, 0
+19764, STubeHalf45Bend1a, MatTubes, 299, 0
+19765, STubeHalf45Bend1b, MatTubes, 299, 0
+19766, STubeHalf15Bend1a, MatTubes, 299, 0
+19767, STubeHalf15Bend1b, MatTubes, 299, 0
+19768, STubeHalf15Bend2a, MatTubes, 299, 0
+19769, STubeHalf15Bend2b, MatTubes, 299, 0
+19770, STubeHalf45Bend3, MatTubes, 299, 0
+19771, STubeHalf45Bend4, MatTubes, 299, 0
+#-----------------------------------------------------------------
+# Crushed Car Cube
+# ----------------
+19772, CrushedCarCube1, CrushedCarCube1, 100, 0
+# ----------------------------------------------------------------
+# Police and FBI Stuff
+# --------------------
+19773, GunHolster1, MatCopStuff, 100, 0
+19774, PoliceBadge2, MatCopStuff, 100, 2097152
+19775, PoliceBadge3, MatCopStuff, 100, 2097152
+19776, FBIIDCard1, MatCopStuff, 100, 2097152
+19777, FBILogo1, MatCopStuff, 100, 2097156
+19778, InsigniaDetective1, MatPoliceInsignias, 100, 2097156
+19779, InsigniaDetective2, MatPoliceInsignias, 100, 2097156
+19780, InsigniaDetective3, MatPoliceInsignias, 100, 2097156
+19781, InsigniaSergeant1, MatPoliceInsignias, 100, 2097156
+19782, InsigniaSergeant2, MatPoliceInsignias, 100, 2097156
+19783, InsigniaPOfficer2, MatPoliceInsignias, 100, 2097156
+19784, InsigniaPOfficer3, MatPoliceInsignias, 100, 2097156
+19785, InsigniaSeniorLdOff, MatPoliceInsignias, 100, 2097156
+# ----------------------------------------------------------------
+# LCD TVs
+# -------
+# Material index 1 is the LCD screen... it can be used to put
+# any picture from a TXD file on the screen.
+19786, LCDTVBig1, SAMPLCDTVs1, 100, 0
+19787, LCDTV1, SAMPLCDTVs1, 100, 0
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+# Objects Added by Matite in SA:MP 0.3.7 RC2
+# ------------------------------------------
+# Modular Island Road Corner
+# --------------------------
+# This road corner is designed to work with the other modular
+# island road objects above (IDs:19529 to 19552).
+19788, 15x15RoadCorner1, MatRoadInters1, 599, 2097152
+# ----------------------------------------------------------------
+# Cubes
+# -----
+# The UV mapping is 1:1 per face to allow re-texturing. The 5mx5m
+# and 10mx10m cubes have faces inside so a player can be within
+# them.
+19789, Cube1mx1m, cs_ebridge, 150, 0
+19790, Cube5mx5m, cs_ebridge, 299, 0
+19791, Cube10mx10m, cs_ebridge, 299, 0
+# ----------------------------------------------------------------
+# Normal Sized Keycard
+# --------------------
+19792, SAMPKeycard1, SAMPKeycard1, 50, 0
+#-----------------------------------------------------------------
+# Fire Wood Log
+# -------------
+19793, FireWoodLog1, FireWood1, 100, 0
+#-----------------------------------------------------------------
+# LS Prison Walls and Gates
+# -------------------------
+# These objects are designed to replace the walls and gates at
+# the LS Prison so you can add your own working gates. Use the
+# new filterscript called ls_prisonwalls to see an example.
+19794, LSPrisonWalls1, civic04_lan, 299, 128
+19795, LSPrisonGateEast, civic04_lan, 299, 128
+19796, LSPrisonGateSouth, civic04_lan, 299, 128
+#-----------------------------------------------------------------
+# Police Visor Strobe
+# -------------------
+# Uses UV animation so it works during the day too.
+19797, PoliceVisorStrobe1, PoliceVisorStrobe1, 200, 0
+#-----------------------------------------------------------------
+# LS Apartments Car Park
+# ----------------------
+# This car park object can be used along with the replacement 
+# block of LS apartments (ID:19595).
+# The filterscript called ls_apartments1 shows an example of how
+# it can be used.
+19798, LSACarPark1, LSACarPark1, 150, 0
+# ----------------------------------------------------------------
+# Caligulas Casino Vault Door Edited
+# ----------------------------------
+# Edited to fix the pivot so it can be used with MoveObject() and
+# also fixed the night vertex colours. Original object ID is 2634.
+19799, CaligulasVaultDoor, all_vault, 150, 0
+#-----------------------------------------------------------------
+# LS BeachSide Car Park
+# ---------------------
+# This car park object can be used along with the replacement 
+# LS BeachSide building (IDs 19596 and 19597).
+# The filterscript called ls_beachside shows an example of how
+# it can be used.
+19800, LSBCarPark1, LSACarPark1, 150, 0
+#-----------------------------------------------------------------
+# Balaclava
+# ---------
+19801, Balaclava1, Balaclava1, 100, 2097152
+#-----------------------------------------------------------------
+# Static Door
+# -----------
+# This door is the same as object ID 1502 except it is static.
+# You can animate it opening and closing with the MoveObject() 
+# function.
+19802, GenDoorINT04Static, int_doors, 50, 128
+#-----------------------------------------------------------------
+# Tow Truck Lights
+# ----------------
+# These lights can be used on top of the tow truck. The light
+# configuration was created by Vince.
+# Note that they will only be visible at night.
+19803, TowTruckLights1, MatTextures, 150, 0
+#-----------------------------------------------------------------
+# Padlock
+# -------
+19804, Padlock1, Padlock1, 50, 0
+#-----------------------------------------------------------------
+# Extracted Items
+# ---------------
+# This whiteboard has a transparent material overlay (index 1)
+# so you can use it with the SetObjectMaterialText() or 
+# SetPlayerObjectMaterialText() functions
+19805, Whiteboard1, Whiteboard1, 50, 2097152
+19806, Chandelier1, svbits, 50, 0
+19807, Telephone1, Telephone1, 50, 0
+19808, Keyboard1, Keyboard1, 50, 0
+19809, MetalTray1, MetalTray1, 50, 2097152
+19810, StaffOnlySign1, StaffOnlySign1, 50, 0
+19811, BurgerBox1, BurgerBox1, 50, 0
+19812, BeerKeg1, ce_breweryref, 100, 0
+19813, ElectricalOutlet1, ElectricalOutlets, 50, 0
+19814, ElectricalOutlet2, ElectricalOutlets, 50, 0
+19815, ToolBoard1, ToolBoard1, 50, 0
+19816, OxygenCylinder1, OxygenCylinder1, 50, 0
+19817, CarFixerRamp1, CarFixerRamp1, 100, 2097152
+19818, WineGlass1, lee_strip2_1, 50, 2097152
+19819, CocktailGlass1, lee_strip2_1, 50, 2097152
+19820, AlcoholBottle1, lee_strip2_1, 50, 0
+19821, AlcoholBottle2, lee_strip2_1, 50, 0
+19822, AlcoholBottle3, lee_strip2_1, 50, 0
+19823, AlcoholBottle4, lee_strip2_1, 50, 0
+19824, AlcoholBottle5, lee_strip2_1, 50, 0
+19825, SprunkClock1, SprunkClock1, 50, 0
+19826, LightSwitch1, LightSwitches, 50, 0
+19827, LightSwitch2, LightSwitches, 50, 0
+19828, LightSwitch3Off, LightSwitches, 50, 0
+19829, LightSwitch3On, LightSwitches, 50, 0
+19830, Blender1, csblender, 50, 0
+19831, Barbeque1, csbarbq, 50, 0
+19832, AmmoBox1, csammobox, 50, 0
+19833, Cow1, Cow1, 150, 0
+19834, PoliceLineTape1, PoliceLineTape1, 50, 0
+19835, CoffeeCup1, d_s, 50, 0
+#-----------------------------------------------------------------
+# Objects That Use Particle.TXD
+# -----------------------------
+19836, BloodPool1, particle, 50, 2097156
+19837, GrassClump1, particle, 50, 2097156
+19838, GrassClump2, particle, 50, 2097156
+19839, GrassClump3, particle, 50, 2097156
+#-----------------------------------------------------------------
+# Animated Waterfalls
+# -------------------
+19840, WaterFall1, vegaswaterfall, 150, 2097284
+19841, WaterFall2, vegaswaterfall, 150, 2097284
+19842, WaterFallWater1, vegaswaterfall, 150, 2097284
+#-----------------------------------------------------------------
+# Metal Panels
+# ------------
+19843, MetalPanel1, MetalPanels, 100, 0
+19844, MetalPanel2, MetalPanels, 100, 0
+19845, MetalPanel3, MetalPanels, 100, 0
+19846, MetalPanel4, MetalPanels, 100, 0
+#-----------------------------------------------------------------
+# Leg of Ham
+# ----------
+19847, LegHam1, LegHam1, 50, 0
+#-----------------------------------------------------------------
+# CargoBob Platform
+# -----------------
+# This platform is designed to attach to the side of the CargoBob
+# helicopter using the AttachObjectToVehicle function so you can
+# carry people around.
+19848, CargoBobPlatform1, ab_cargo_int, 150, 0
+#-----------------------------------------------------------------
+# Modular Island House 1
+# ----------------------
+# These objects are designed to work with the other modular
+# island objects above (IDs:19529 to 19552). Use the new
+# filterscript called modular_houses to see an example.
+19849, MIHouse1Land, MIHouse1, 599, 4
+19850, MIHouse1Land2, MIHouse1, 599, 0
+19851, MIHouse1Land3, MIHouse1, 599, 0
+19852, MIHouse1Land4, MIHouse1, 599, 0
+19853, MIHouse1Land5, MIHouse1, 599, 0
+19854, MIHouse1Outside, MIHouse1, 599, 4
+19855, MIHouse1Inside, MIHouse1, 150, 0
+19856, MIHouse1IntWalls1, MIHouse1, 150, 0
+19857, MIHouse1Door1, MIHouse1, 50, 132
+19858, MIHouse1Door2, vegashse2, 50, 132
+19859, MIHouse1Door3, vegashse3, 50, 132
+19860, MIHouse1Door4, vegashse5, 50, 132
+19861, MIHouse1GarageDoor1, MIHouse1, 50, 128
+19862, MIHouse1GarageDoor2, vegashse3, 50, 128
+19863, MIHouse1GarageDoor3, vegashse5, 50, 128
+19864, MIHouse1GarageDoor4, vegashse6, 50, 128
+19865, MIFenceWood1, vegashse2, 100, 132
+19866, MIFenceBlocks1, vegashse2, 100, 128
+#-----------------------------------------------------------------
+# Non-Breakable Mail Box
+# ----------------------
+# This mail box is same as object ID 1478 except it is not
+# dynamic (breakable) and the night vertex colours (NVC) 
+# have been fixed.
+19867, MailBox1, break_garden, 100, 0
+#-----------------------------------------------------------------
+# Non-Breakable Mesh Fences and Gate
+# ----------------------------------
+# These fence sections are the same as object IDs 1411 and 1412
+# except they are not dynamic (breakable). 
+19868, MeshFence1, break_fen_mesh2, 100, 132
+19869, MeshFence2, break_fen_mesh2, 100, 132
+# This metal gate is the same as object ID 3036 except it is not
+# dynamic (breakable).
+19870, MetalGate1, ctgtxx, 100, 132
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+# Objects Added by Matite in SA:MP 0.3.7 RC3
+# ------------------------------------------
+19871, CordonStand1, airp_prop, 50, 0
+19872, CarFixerRamp2, CarFixerRamp1, 100, 2097152
+19873, ToiletPaperRoll1, BathroomStuff1, 50, 0
+19874, SoapBar1, BathroomStuff1, 50, 0
+# This door is the same as object ID 2947 except it is not
+# dynamic (breakable) and the pivot point has been moved.
+19875, CRDoor01New, sw_doors, 50, 128
+#-----------------------------------------------------------------
+# Dillimore Gas Station
+# ---------------------
+# Replaces object IDs 12853 and 12854 with an enterable version 
+# of the Dillimore Gas Station. Use the new filterscript called
+# dillimore_gas to see an example.
+19876, DillimoreGasExt1, cunte_gas01, 299, 2097284
+19877, DillimoreGasInt1, cunte_gas01, 100, 2097284
+#-----------------------------------------------------------------
+# GTASA Skateboard
+# ----------------
+# Edited to work as a normal object and added vertex colours.
+19878, Skateboard1, skateboard, 100, 0
+#-----------------------------------------------------------------
+# LS Wells Fargo Building
+# -----------------------
+# This building is a replacement for the LS Wells Fargo building
+# (object ID 4007). Use the new filterscript called ls_wellsfargo
+# to see an example.
+19879, WellsFargoBuild1, lanblokc, 299, 0
+19880, WellsFargoGrgDoor1, lanblokc, 100, 0
+#-----------------------------------------------------------------
+# Kylie's Barn Fixed
+# ------------------
+# This barn is the same as object ID 14871 except the collision
+# (COL) has been fixed. Use the new filterscript called kylies_barn
+# to see an example.
+19881, KylieBarnFixed1, gf3, 50, 0
+#-----------------------------------------------------------------
+# Marco's Steak Cooked
+# --------------------
+# This steak is the same as object ID 19582 except it is cooked.
+19882, MarcosSteak2, MarcosSteak2, 100, 0
+#-----------------------------------------------------------------
+# Slice of Bread
+# --------------
+19883, BreadSlice1, BreadSlice1, 50, 0
+#-----------------------------------------------------------------
+# More Water Slide Sections
+# -------------------------
+# These objects are designed to work with the old existing object 
+# IDs 19070 to 19073.
+19884, WSBend45Deg2, WSSections, 299, 2097156
+19885, WSStraight2, WSSections, 299, 2097156
+19886, WSStraight3, WSSections, 299, 2097156
+19887, WSStart1, WSSections, 299, 2097156
+19888, WSBend45Deg3, WSSections, 299, 2097156
+19889, WSBend45Deg4, WSSections, 299, 2097156
+19890, WSStraight4, WSSections, 299, 2097156
+19891, WSTubeJoiner1, WSSections, 299, 2097156
+19892, WSRoadJoiner1, WSSections, 299, 2097156
+#-----------------------------------------------------------------
+# Laptop (Old Style)
+# ------------------
+# Same laptop in open and closed positions. You can change the
+# screen using the SetObjectMaterial() function on index 1.
+# There are three screen variations in the TXD file:
+# * LaptopScreen1 = GTASA map screen (default)
+# * LaptopScreen2 = Text screen
+# * LaptopScreen3 = Police database screen
+19893, LaptopSAMP1, LaptopSAMP1, 50, 0
+19894, LaptopSAMP2, LaptopSAMP1, 50, 0
+#-----------------------------------------------------------------
+# Ladder Fire Truck Lights
+# ------------------------
+# These lights can be used on top of the ladder fire truck.
+# Note that they will only be visible at night.
+19895, LadderFireTruckLts1, MatTextures, 150, 0
+#-----------------------------------------------------------------
+# Misc Items
+# ----------
+19896, CigarettePack1, CigarettePacks, 50, 0
+19897, CigarettePack2, CigarettePacks, 50, 0
+19898, OilFloorStain1, hubprops1_sfse, 50, 2097156
+19899, ToolCabinet1, hubprops2_sfse, 50, 2097152
+19900, ToolCabinet2, hubprops2_sfse, 50, 0
+# 19901 = Anim Tube ANIM object
+# 19902 = EnEx Marker ANIM object
+19903, MechanicComputer1, hubprops2_sfse, 50, 4
+19904, ConstructionVest1, bmyap, 100, 2097152
+#-----------------------------------------------------------------
+# Area 51 (69) Buildings
+# ----------------------
+# Same as the original buildings but now with an interior.
+19905, A51Building1, a51_ext, 299, 0
+19906, A51Building1GrgDoor, a51_ext, 50, 0
+19907, A51Building2, a51_ext, 299, 0
+19908, A51Building2GrgDoor, a51_ext, 50, 0
+19909, A51Building3, a51_ext, 299, 0
+19910, A51Building3GrgDoor, a51_ext, 50, 0
+# The door below is designed to fit on the A51/69 Military Hangar
+# (object ID 3268). It takes two doors to close the entrance.
+19911, A51HangarDoor1, a51_ext, 100, 0
+#-----------------------------------------------------------------
+# Metal Gate and Big Fence
+# ------------------------
+# This gate is the same as object ID 980 except it has no signs
+# on it and the pivot point is on the edge.
+19912, SAMPMetalGate1, electricgate, 100, 4
+# Big metal fence.
+19913, SAMPBigFence1, electricgate, 299, 4
+#-----------------------------------------------------------------
+# Extracted from Cutscene IMG and Edited
+# --------------------------------------
+19914, CutsceneBat1, csbat, 50, 0
+19915, CutsceneCooker1, cscooker, 50, 0
+19916, CutsceneFridge1, csfridge, 50, 0
+19917, CutsceneEngine1, csengine, 50, 0
+19918, CutsceneBox1, csheistbox, 50, 0
+19919, CutscenePerch1, csparrotperch, 50, 0
+19920, CutsceneRemote1, csremote, 50, 0
+19921, CutsceneToolBox1, cstoolkit, 50, 0
+#-----------------------------------------------------------------
+# Modular Kitchen
+# ---------------
+19922, MKTable1, cswzkitch, 50, 0
+19923, MKIslandCooker1, cswzkitch, 50, 0
+19924, MKExtractionHood1, cswzkitch, 50, 0
+19925, MKWorkTop1, cswzkitch, 50, 0
+19926, MKWorkTop2, cswzkitch, 50, 0
+19927, MKWorkTop3, cswzkitch, 50, 0
+19928, MKWorkTop4, cswzkitch, 50, 0
+19929, MKWorkTop5, cswzkitch, 50, 0
+19930, MKWorkTop6, cswzkitch, 50, 0
+19931, MKWorkTop7, cswzkitch, 50, 0
+19932, MKWallOvenCabinet1, cswzkitch, 50, 0
+19933, MKWallOven1, MKWallOven1, 50, 0
+19934, MKCupboard1, cswzkitch, 50, 0
+19935, MKCupboard2, cswzkitch, 50, 0
+19936, MKCupboard3, cswzkitch, 50, 0
+19937, MKCupboard4, cswzkitch, 50, 0
+19938, MKShelf1, cswzkitch, 50, 0
+19939, MKShelf2, cswzkitch, 50, 0
+19940, MKShelf3, cswzkitch, 50, 0
+#-----------------------------------------------------------------
+# Misc Items
+# ----------
+19941, GoldBar1, GoldBar1, 50, 0
+19942, PoliceRadio1, PoliceRadio1, 50, 0
+19943, StonePillar1, ab_pillartemp, 150, 0
+19944, BodyBag1, des_cen, 50, 0
+#-----------------------------------------------------------------
+# Checkpoints
+# -----------
+19945, CPSize16Red, EnExMarkers, 299, 2097220
+19946, CPSize16Green, EnExMarkers, 299, 2097220
+19947, CPSize16Blue, EnExMarkers, 299, 2097220
+#-----------------------------------------------------------------
+# Road Signs
+# ----------
+# Misc road signs
+19948, SAMPRoadSign1, SAMPRoadSigns, 50, 128
+19949, SAMPRoadSign2, SAMPRoadSigns, 50, 128
+19950, SAMPRoadSign3, SAMPRoadSigns, 50, 128
+19951, SAMPRoadSign4, SAMPRoadSigns, 50, 128
+19952, SAMPRoadSign5, SAMPRoadSigns, 50, 128
+19953, SAMPRoadSign6, SAMPRoadSigns, 50, 128
+19954, SAMPRoadSign7, SAMPRoadSigns, 50, 128
+19955, SAMPRoadSign8, SAMPRoadSigns, 50, 128
+19956, SAMPRoadSign9, SAMPRoadSigns, 50, 128
+19957, SAMPRoadSign10, SAMPRoadSigns, 50, 128
+19958, SAMPRoadSign11, SAMPRoadSigns, 50, 128
+19959, SAMPRoadSign12, SAMPRoadSigns, 50, 128
+19960, SAMPRoadSign13, SAMPRoadSigns, 50, 128
+19961, SAMPRoadSign14, SAMPRoadSigns, 50, 128
+19962, SAMPRoadSign15, SAMPRoadSigns, 50, 128
+19963, SAMPRoadSign16, SAMPRoadSigns, 50, 128
+19964, SAMPRoadSign17, SAMPRoadSigns, 50, 128
+19965, SAMPRoadSign18, SAMPRoadSigns, 50, 128
+19966, SAMPRoadSign19, SAMPRoadSigns, 50, 128
+19967, SAMPRoadSign20, SAMPRoadSigns, 50, 128
+19968, SAMPRoadSign21, SAMPRoadSigns, 50, 128
+19969, SAMPRoadSign22, SAMPRoadSigns, 50, 128
+19970, SAMPRoadSign23, SAMPRoadSigns, 50, 128
+19971, SAMPRoadSign24, SAMPRoadSigns, 50, 128
+19972, SAMPRoadSign25, SAMPRoadSigns, 50, 128
+19973, SAMPRoadSign26, SAMPRoadSigns, 50, 128
+19974, SAMPRoadSign27, SAMPRoadSigns, 50, 128
+19975, SAMPRoadSign28, SAMPRoadSigns, 50, 128
+19976, SAMPRoadSign29, SAMPRoadSigns, 50, 128
+19977, SAMPRoadSign30, SAMPRoadSigns, 50, 128
+19978, SAMPRoadSign31, SAMPRoadSigns, 50, 128
+19979, SAMPRoadSign32, SAMPRoadSigns, 50, 128
+# The two signs below have a transparent material overlay (index 3)
+# so you can use it with the SetObjectMaterialText() or 
+# SetPlayerObjectMaterialText() functions
+19980, SAMPRoadSign33, SAMPRoadSigns, 50, 128
+19981, SAMPRoadSign34, SAMPRoadSigns, 50, 128
+# Speed limit signs
+19982, SAMPRoadSign35, SAMPRoadSigns, 50, 128
+19983, SAMPRoadSign36, SAMPRoadSigns, 50, 128
+19984, SAMPRoadSign37, SAMPRoadSigns, 50, 128
+19985, SAMPRoadSign38, SAMPRoadSigns, 50, 128
+19986, SAMPRoadSign39, SAMPRoadSigns, 50, 128
+19987, SAMPRoadSign40, SAMPRoadSigns, 50, 128
+19988, SAMPRoadSign41, SAMPRoadSigns, 50, 128
+19989, SAMPRoadSign42, SAMPRoadSigns, 50, 128
+19990, SAMPRoadSign43, SAMPRoadSigns, 50, 128
+19991, SAMPRoadSign44, SAMPRoadSigns, 50, 128
+19992, SAMPRoadSign45, SAMPRoadSigns, 50, 128
+#-----------------------------------------------------------------
+# Extracted from Cutscene IMG and Edited
+# --------------------------------------
+19993, CutsceneBowl1, csbowl, 50, 0
+19994, CutsceneChair1, cschair, 50, 0
+19995, CutsceneAmmoClip1, csclip, 50, 0
+19996, CutsceneFoldChair1, csfoldchair, 50, 2097152
+19997, CutsceneGrgTable1, csgrgtable, 50, 0
+19998, CutsceneLighterFl, cslighterfluid, 50, 0
+19999, CutsceneChair2, csrcrdchair, 50, 0
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+# 11682 to 12799 ID Range
+# -----------------------
+# Extracted and edited cutscene objects continued from above
+11682, CutsceneCouch1, csmafcouch, 50, 0
+11683, CutsceneCouch2, csmafcouch, 50, 0
+11684, CutsceneCouch3, csmafcouch, 50, 0
+11685, CutsceneCouch4, csmafcouch, 50, 0
+#-----------------------------------------------------------------
+# Redsands West Casino Extracted and Edited Items
+# -----------------------------------------------
+11686, CBarSection1, int_casinoint3, 50, 0
+11687, CBarStool1, int_casinoint3, 50, 0
+11688, CWorkTop1, int_casinoint3, 50, 0
+11689, CBoothSeat1, int_casinoint3, 50, 0
+11690, CTable1, int_casinoint3, 50, 0
+11691, CTable2, int_casinoint3, 50, 0
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+# Objects Added by Matite in SA:MP 0.3.7 RC4
+# ------------------------------------------
+# A51 Replacement Land Bit
+# ------------------------
+# This object is designed to replace the land section at the
+# Area 51 (69) Base (object ID 16203). Use the new filterscript 
+# called a51_base to see an example.
+11692, A51LandBit1, a51_ext, 599, 0
+#-----------------------------------------------------------------
+# Hills
+# -----
+11693, Hills250x250Grass1, beach_sfs, 599, 0
+11694, Hill250x250Rocky1, des_sw, 599, 0
+11695, Hill250x250Rocky2, des_sw, 599, 0
+11696, Hill250x250Rocky3, Hill250x250Rocky3, 599, 0
+#-----------------------------------------------------------------
+# Modular Rope Bridge
+# -------------------
+11697, RopeBridgePart1, RopeBridge, 299, 0
+11698, RopeBridgePart2, RopeBridge, 299, 0
+#-----------------------------------------------------------------
+# More Road Signs
+# ---------------
+# The speed limit sign below has a transparent material overlay 
+# (index 3) so you can use it with the SetObjectMaterialText() 
+# or SetPlayerObjectMaterialText() functions
+11699, SAMPRoadSign46, SAMPRoadSigns, 50, 132
+11700, SAMPRoadSign47, SAMPRoadSigns, 50, 128
+#-----------------------------------------------------------------
+# Ambulance Lights
+# ----------------
+# First object is with lights on and second is with lights off.
+11701, AmbulanceLights1, AmbulanceLights1, 150, 0
+11702, AmbulanceLights2, AmbulanceLights1, 150, 0
+#-----------------------------------------------------------------
+# Magnetic Crane Object
+# ---------------------
+# This object is the same as object ID 1382 except GTASA will not
+# automatically attach the crane cable and magnet to it.
+11703, MagnoCrane_03_2, cranes_dyn2_cj, 150, 4
+#-----------------------------------------------------------------
+# Extracted Items
+# ---------------
+11704, BDupsMask1, bdupsnew, 100, 2097152
+11705, BlackTelephone1, cuntcuts, 50, 0
+11706, SmallWasteBin1, cuntcuts, 50, 0
+11707, TowelRack1, cuntcuts, 50, 0
+11708, BrickSingle1, sw_well1, 50, 0
+11709, AbattoirSink1, ab_abbatoir01, 50, 0
+11710, FireExitSign1, eastbeach8_lae2, 75, 0
+11711, ExitSign1, eastbeach8_lae2, 75, 0
+11712, Cross1, Cross1, 50, 0
+11713, FireExtPanel1, maint1, 50, 0
+11714, MaintenanceDoors1, maint1, 50, 0
+11715, MetalFork1, gb_dirtycrock01, 50, 0
+11716, MetalKnife1, gb_dirtycrock01, 50, 0
+11717, WooziesCouch1, ab_wooziec, 50, 0
+11718, SweetsSaucepan1, SweetsStuff1, 50, 0
+11719, SweetsSaucepan2, SweetsStuff1, 50, 0
+11720, SweetsBed1, SweetsStuff1, 50, 0
+11721, Radiator1, lahss2_2int2, 50, 0
+11722, SauceBottle1, ab_trukstpb, 50, 0
+11723, SauceBottle2, ab_trukstpb, 50, 0
+11724, FireplaceSurround1, svcunthoose, 50, 0
+11725, Fireplace1, svcunthoose, 50, 0
+11726, HangingLight1, sfhosemed2, 50, 0
+11727, PaperChaseLight1, papaerchaseoffice, 50, 0
+11728, PaperChasePhone1, papaerchaseoffice, 50, 0
+11729, GymLockerClosed1, intring_gymint3, 50, 0
+11730, GymLockerOpen1, intring_gymint3, 50, 0
+11731, WHeartBed1, whore_rms, 50, 4
+11732, WHeartBath1, whore_rms, 50, 0
+11733, WRockingHorse1, whore_rms, 50, 0
+11734, WRockingChair1, whore_rms, 50, 0
+11735, WBoot1, whore_rms, 50, 0
+11736, MedicalSatchel1, paperchase_bits2, 50, 0
+11737, RockstarMat1, carter_block_2, 50, 0
+11738, MedicCase1, MedicCase1, 50, 0
+#-----------------------------------------------------------------
+# Extracted from Marco's Bistro
+# -----------------------------
+11739, MCake1, MarcosStuff1, 50, 0
+11740, MCake2, MarcosStuff1, 50, 0
+11741, MCake3, MarcosStuff1, 50, 0
+11742, MCakeSlice1, MarcosStuff1, 50, 0
+11743, MCoffeeMachine1, MarcosStuff1, 50, 0
+11744, MPlate1, MarcosStuff1, 50, 0
+#-----------------------------------------------------------------
+# Hold All (Carry Bag) Edited
+# ---------------------------
+# This object is the same as ID 2919 except it is smaller and
+# not dynamic.
+11745, HoldAllEdited1, kmb_chute, 50, 4
+#-----------------------------------------------------------------
+# Misc
+# ----
+11746, DoorKey1, DoorKey1, 50, 0
+11747, Bandage1, Bandages, 50, 0
+11748, BandagePack1, Bandages, 50, 0
+#-----------------------------------------------------------------
+# Cutscene Handcuffs
+# ------------------
+11749, CSHandcuffs1, CSHandcuffs1, 50, 0
+# The handcuffs below are the same as above except they are folded
+# in half so they can be attached to an officers belt.
+11750, CSHandcuffs2, CSHandcuffs1, 50, 0
+#-----------------------------------------------------------------
+# Area Boundaries
+# ---------------
+11751, AreaBoundary50m, EnExMarkers, 599, 2097220
+11752, AreaBoundary10m, EnExMarkers, 599, 2097220
+11753, AreaBoundary1m, EnExMarkers, 599, 2097220
+#-----------------------------------------------------------------
+#-----------------------------------------------------------------
+end
+tobj
+end
+path
+end
+2dfx
+end
+#-----------------------------------------------------------------
+# Animated (ANIM) Objects
+# -----------------------
+# Note: You cannot have more than three ANIM objects in total
+#       listed below and/or in the Custom.IDE file.
+#-----------------------------------------------------------------
+anim
+19901, AnimTube, MatTextures, AnimTube, 299, 0
+19902, EnExMarker4, EnExMarkers, EnExMarker4, 150, 68
+end
+txdp
+end
+#-----------------------------------------------------------------
+# Ped skin variants added for 0.3.7
+#-----------------------------------------------------------------
+peds
+300, lapdna, lapd1, COP, STAT_COP, swat, 1FFF, 0, null, 9,9, PED_TYPE_EMG,VOICE_EMG_LAPD1 ,VOICE_EMG_LAPD8 
+301, sfpdna, sfpd1, COP, STAT_COP, swat, 1FFF, 0, null, 9,9, PED_TYPE_EMG,VOICE_EMG_SFPD1 ,VOICE_EMG_SFPD5 
+302, lvpdna, lvpd1, COP, STAT_COP, swat, 1FFF, 0, null, 9,9, PED_TYPE_EMG,VOICE_EMG_LVPD1 ,VOICE_EMG_LVPD5 
+303, lapdpc, lapdpc, COP, STAT_COP, swat, 1FFF, 0, null, 9,9, PED_TYPE_EMG,VOICE_EMG_LAPD1 ,VOICE_EMG_LAPD8
+304, lapdpd, lapdpd, COP, STAT_COP, swat, 1FFF, 0, null, 9,9, PED_TYPE_EMG,VOICE_EMG_LAPD1 ,VOICE_EMG_LAPD8
+305, lvpdpc, lvpdpc, COP, STAT_COP, swat, 1FFF, 0, null, 9,9, PED_TYPE_EMG,VOICE_EMG_LVPD1 ,VOICE_EMG_LVPD5
+306, WFYCLPD, WFYCLPD, CIVFEMALE, STAT_STREET_GIRL, woman, 1FFF,0, null,1,4,PED_TYPE_GFD,VOICE_GFD_WFYCLOT ,VOICE_GFD_WFYCLOT
+307, VBFYCPD, VBFYCPD, CIVFEMALE, STAT_SUIT_GIRL, woman, 130C,0, null,3,7,PED_TYPE_GEN,VOICE_GEN_BFYCRP ,VOICE_GEN_BFYCRP
+308, WFYCLEM, WFYCLEM, CIVFEMALE, STAT_STREET_GIRL, sexywoman,1983,1, null,4,6,PED_TYPE_GEN,VOICE_GEN_WFYST,VOICE_GEN_WFYST
+309, WFYCLLV, WFYCLLV, CIVFEMALE, STAT_STREET_GIRL, woman, 1FFF,0, null,1,4,PED_TYPE_GFD,VOICE_GFD_WFYCLOT ,VOICE_GFD_WFYCLOT
+310, csherna, csherna, COP, STAT_COP, swat, 1FFF, 0, null, 9,9, PED_TYPE_EMG,VOICE_EMG_RCOP1 ,VOICE_EMG_RCOP4
+311, dsherna, dsherna, COP, STAT_COP, swat, 1FFF, 0, null, 9,9, PED_TYPE_EMG,VOICE_EMG_RCOP1 ,VOICE_EMG_RCOP4
+end
